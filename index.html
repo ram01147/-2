@@ -1,0 +1,1509 @@
+
+
+Yflc portal · HTML
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YFLC | ศูนย์การเรียนรู้การบริหารทางการเงินและทักษะการเงินสำหรับเยาวชน</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Thai:wght@500;600;700&family=Sarabun:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy-900:#1e3a8a;
+  --navy-800:#16306e;
+  --navy-700:#24428f;
+  --navy-50:#EAEEF9;
+  --amber-600:#d97706;
+  --amber-700:#b3610a;
+  --amber-100:#FBEAD2;
+  --bg:#F4F6FA;
+  --surface:#FFFFFF;
+  --ink:#1B2333;
+  --muted:#5B6472;
+  --line:#DCE1EC;
+  --success:#0F7B4D;
+  --success-bg:#E4F5EC;
+  --danger:#B3261E;
+  --danger-bg:#FBEAEA;
+  --radius-md:10px;
+  --radius-lg:16px;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:'Sarabun',sans-serif;
+  font-size:16px;
+  line-height:1.75;
+}
+h1,h2,h3,h4{
+  font-family:'Noto Serif Thai',serif;
+  color:var(--navy-900);
+  margin:0;
+  line-height:1.4;
+}
+p{margin:0;}
+a{color:inherit;}
+img,svg{display:block;max-width:100%;}
+button{font-family:inherit;cursor:pointer;}
+input,select{font-family:inherit;}
+:focus-visible{outline:3px solid var(--amber-600);outline-offset:2px;}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px;}
+.hidden{display:none !important;}
+ 
+/* ---------- UTILITY BAR ---------- */
+.util-bar{
+  background:var(--navy-800);
+  color:#C9D3EE;
+  font-size:0.82rem;
+}
+.util-bar .wrap{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  height:34px;
+  flex-wrap:wrap;
+  gap:6px;
+}
+ 
+/* ---------- HEADER ---------- */
+.site-header{
+  background:var(--surface);
+  border-bottom:1px solid var(--line);
+}
+.site-header .wrap{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  padding:18px 24px;
+}
+.emblem{flex:0 0 auto;}
+.header-text{flex:1;min-width:0;}
+.header-text h1{
+  font-size:clamp(1.05rem,2.6vw,1.5rem);
+  font-weight:700;
+}
+.header-text .acronym{
+  color:var(--amber-600);
+  font-weight:700;
+}
+.header-text .tagline{
+  margin-top:4px;
+  color:var(--muted);
+  font-size:0.92rem;
+}
+ 
+/* ---------- MAIN NAV TABS ---------- */
+.main-nav{
+  background:var(--navy-900);
+  position:sticky;
+  top:0;
+  z-index:60;
+}
+.main-nav .wrap{
+  display:flex;
+  overflow-x:auto;
+  scrollbar-width:none;
+}
+.main-nav .wrap::-webkit-scrollbar{display:none;}
+.nav-tab{
+  background:transparent;
+  border:none;
+  color:#C9D3EE;
+  padding:16px 22px;
+  font-size:0.98rem;
+  font-weight:600;
+  white-space:nowrap;
+  border-bottom:3px solid transparent;
+  transition:background .15s,color .15s,border-color .15s;
+}
+.nav-tab:hover{background:var(--navy-700);color:#fff;}
+.nav-tab.active{
+  color:#fff;
+  border-bottom-color:var(--amber-600);
+  background:var(--navy-800);
+}
+ 
+/* ---------- BREADCRUMB ---------- */
+.breadcrumb{
+  background:var(--navy-50);
+  border-bottom:1px solid var(--line);
+  font-size:0.87rem;
+  color:var(--muted);
+}
+.breadcrumb .wrap{padding:11px 24px;}
+.breadcrumb strong{color:var(--navy-900);}
+ 
+/* ---------- PAGE / SECTIONS ---------- */
+.page{padding:44px 0 64px;}
+.page-title{
+  font-size:clamp(1.5rem,3.4vw,2rem);
+  font-weight:700;
+  margin-bottom:10px;
+}
+.page-lede{
+  color:var(--muted);
+  max-width:70ch;
+  margin-bottom:36px;
+}
+.block{margin-bottom:48px;}
+.block:last-child{margin-bottom:0;}
+.block-title{
+  font-size:1.35rem;
+  font-weight:700;
+  margin-bottom:16px;
+  padding-bottom:10px;
+  border-bottom:2px solid var(--line);
+}
+ 
+/* ---------- CARDS ---------- */
+.card{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:var(--radius-md);
+  padding:22px;
+}
+.grid-2{display:grid;gap:20px;grid-template-columns:1fr;}
+.grid-3{display:grid;gap:20px;grid-template-columns:1fr;}
+@media(min-width:680px){
+  .grid-2{grid-template-columns:1fr 1fr;}
+  .grid-3{grid-template-columns:repeat(3,1fr);}
+}
+ 
+/* ---------- HOME: HERO ---------- */
+.hero-official{
+  background:linear-gradient(135deg,var(--navy-900),var(--navy-700));
+  color:#fff;
+  padding:52px 0;
+}
+.hero-official h2{
+  color:#fff;
+  font-size:clamp(1.6rem,4vw,2.3rem);
+  font-weight:700;
+  max-width:20ch;
+}
+.hero-official p{
+  color:#DCE3F5;
+  margin-top:16px;
+  max-width:65ch;
+  font-size:1.02rem;
+}
+.hero-official .badges{
+  margin-top:24px;
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+}
+.badge{
+  background:rgba(255,255,255,0.12);
+  border:1px solid rgba(255,255,255,0.35);
+  padding:8px 16px;
+  border-radius:999px;
+  font-size:0.85rem;
+}
+.badge-link{
+  color:#fff;
+  font-family:'Sarabun',sans-serif;
+  transition:background .15s,transform .1s;
+}
+.badge-link:hover{
+  background:rgba(255,255,255,0.24);
+}
+.badge-link:active{transform:translateY(1px);}
+ 
+.pillar-card{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-top:4px solid var(--amber-600);
+  border-radius:var(--radius-md);
+  padding:22px;
+}
+.pillar-card h3{font-size:1.05rem;margin-bottom:8px;}
+.pillar-card p{color:var(--muted);font-size:0.94rem;}
+.pillar-icon{
+  width:40px;height:40px;
+  border-radius:10px;
+  background:var(--amber-100);
+  color:var(--amber-700);
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:14px;
+}
+ 
+.goal-list{list-style:none;margin:0;padding:0;display:grid;gap:12px;}
+.goal-list li{
+  display:flex;
+  gap:12px;
+  align-items:flex-start;
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:var(--radius-md);
+  padding:16px 18px;
+}
+.goal-list .num{
+  flex:0 0 auto;
+  width:28px;height:28px;
+  border-radius:50%;
+  background:var(--navy-900);
+  color:#fff;
+  font-family:'Noto Serif Thai',serif;
+  font-weight:600;
+  font-size:0.85rem;
+  display:flex;align-items:center;justify-content:center;
+}
+ 
+.news-card{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:var(--radius-md);
+  overflow:hidden;
+}
+.news-card .news-tag{
+  background:var(--navy-50);
+  color:var(--navy-900);
+  font-size:0.78rem;
+  font-weight:600;
+  padding:4px 12px;
+  display:inline-block;
+  margin:16px 0 0 18px;
+  border-radius:999px;
+}
+.news-card .news-body{padding:14px 18px 20px;}
+.news-card h3{font-size:1.02rem;margin-bottom:8px;}
+.news-card p{color:var(--muted);font-size:0.92rem;}
+.news-card .news-date{color:var(--muted);font-size:0.8rem;margin-top:10px;display:block;}
+ 
+.video-wrap{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:var(--radius-lg);
+  padding:20px;
+}
+.video-frame{
+  position:relative;
+  width:100%;
+  padding-top:56.25%;
+  border-radius:var(--radius-md);
+  overflow:hidden;
+  background:#000;
+}
+.video-frame iframe{
+  position:absolute;
+  top:0;left:0;
+  width:100%;height:100%;
+  border:0;
+}
+.video-caption{
+  margin-top:14px;
+  font-size:0.92rem;
+  color:var(--muted);
+}
+.video-caption strong{color:var(--navy-900);}
+ 
+/* ---------- LESSONS ---------- */
+.lesson-layout{
+  display:grid;
+  gap:24px;
+  grid-template-columns:1fr;
+}
+@media(min-width:840px){
+  .lesson-layout{grid-template-columns:260px 1fr;align-items:start;}
+}
+.unit-menu{
+  display:flex;
+  gap:8px;
+  overflow-x:auto;
+  padding-bottom:4px;
+}
+@media(min-width:840px){
+  .unit-menu{
+    flex-direction:column;
+    position:sticky;
+    top:110px;
+  }
+}
+.unit-btn{
+  text-align:right;
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:var(--radius-md);
+  padding:14px 16px;
+  font-size:0.92rem;
+  font-weight:600;
+  color:var(--ink);
+  white-space:nowrap;
+  flex:0 0 auto;
+}
+@media(min-width:840px){
+  .unit-btn{white-space:normal;}
+}
+.unit-btn .unit-num{color:var(--amber-600);font-family:'Noto Serif Thai',serif;font-size:0.8rem;display:block;margin-bottom:2px;}
+.unit-btn.active{
+  background:var(--navy-900);
+  border-color:var(--navy-900);
+  color:#fff;
+}
+.unit-btn.active .unit-num{color:var(--amber-100);}
+ 
+.unit-content{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:var(--radius-lg);
+  padding:28px;
+}
+@media(min-width:640px){.unit-content{padding:36px;}}
+.unit-content h2{font-size:1.5rem;margin-bottom:6px;}
+.unit-content .unit-sub{color:var(--muted);font-size:0.95rem;margin-bottom:24px;}
+.unit-content h3{
+  font-size:1.12rem;
+  margin-top:26px;
+  margin-bottom:10px;
+  color:var(--navy-800);
+}
+.unit-content h3:first-of-type{margin-top:0;}
+.unit-content p{margin-bottom:12px;color:var(--ink);}
+.unit-content ul,.unit-content ol{margin:0 0 14px;padding-inline-start:22px;}
+.unit-content li{margin-bottom:6px;}
+.lesson-img{
+  width:100%;
+  border-radius:var(--radius-md);
+  border:1px solid var(--line);
+  margin:6px 0 18px;
+  display:block;
+}
+.lesson-img-caption{
+  margin-top:-10px;
+  margin-bottom:20px;
+  font-size:0.85rem;
+  color:var(--muted);
+  text-align:center;
+}
+.formula-box{
+  background:var(--navy-50);
+  border-inline-start:4px solid var(--navy-900);
+  border-radius:8px;
+  padding:14px 18px;
+  margin:16px 0;
+  font-family:'Noto Serif Thai',serif;
+  font-size:1.02rem;
+  color:var(--navy-900);
+}
+.formula-box small{
+  display:block;
+  font-family:'Sarabun',sans-serif;
+  color:var(--muted);
+  font-size:0.85rem;
+  margin-top:6px;
+}
+.summary-box{
+  background:var(--amber-100);
+  border-radius:var(--radius-md);
+  padding:16px 18px;
+  margin-top:22px;
+  font-size:0.94rem;
+}
+.summary-box strong{color:var(--amber-700);}
+ 
+/* ---------- CALCULATORS ---------- */
+.calc-card{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-top:4px solid var(--navy-900);
+  border-radius:var(--radius-lg);
+  padding:28px;
+  display:grid;
+  gap:28px;
+}
+@media(min-width:760px){
+  .calc-card{grid-template-columns:1fr 1fr;padding:34px;}
+}
+.field{margin-bottom:18px;}
+.field:last-child{margin-bottom:0;}
+.field label{
+  display:block;
+  font-weight:600;
+  font-size:0.93rem;
+  margin-bottom:7px;
+  color:var(--navy-900);
+}
+.input-row{
+  display:flex;
+  align-items:center;
+  border:1.5px solid var(--line);
+  border-radius:8px;
+  background:#FBFBFE;
+  overflow:hidden;
+}
+.input-row:focus-within{border-color:var(--navy-700);}
+.input-row input{
+  flex:1;
+  border:none;
+  background:transparent;
+  padding:12px 14px;
+  font-size:1.02rem;
+  min-width:0;
+}
+.input-row input:focus{outline:none;}
+.input-row .unit-suffix{padding:0 14px;color:var(--muted);font-size:0.88rem;white-space:nowrap;}
+ 
+.result-panel{
+  background:var(--navy-50);
+  border-radius:var(--radius-md);
+  padding:22px;
+}
+.result-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  padding:10px 0;
+  border-bottom:1px dashed var(--line);
+}
+.result-row:last-child{border-bottom:none;}
+.result-row .label{font-size:0.92rem;color:var(--muted);}
+.result-row .value{
+  font-family:'Noto Serif Thai',serif;
+  font-weight:600;
+  font-size:1.15rem;
+  color:var(--navy-900);
+}
+.result-row.total .value{color:var(--amber-700);font-size:1.35rem;}
+ 
+.bar-row{margin-bottom:16px;}
+.bar-row:last-child{margin-bottom:0;}
+.bar-label{display:flex;justify-content:space-between;font-size:0.9rem;margin-bottom:6px;}
+.bar-label .amount{font-family:'Noto Serif Thai',serif;font-weight:600;}
+.bar-track{height:11px;background:#DDE2F0;border-radius:999px;overflow:hidden;}
+.bar-fill{height:100%;width:0%;border-radius:999px;transition:width .5s ease;}
+.bar-fill.need{background:var(--navy-900);}
+.bar-fill.want{background:var(--amber-600);}
+.bar-fill.save{background:var(--success);}
+ 
+/* ---------- ASSESSMENT ---------- */
+.assess-intro{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:var(--radius-lg);
+  padding:26px;
+  margin-bottom:32px;
+}
+.assess-intro ul{margin:12px 0 0;padding-inline-start:22px;color:var(--muted);}
+.assess-intro li{margin-bottom:6px;}
+ 
+.score-summary{
+  background:linear-gradient(135deg,var(--navy-900),var(--navy-700));
+  color:#fff;
+  border-radius:var(--radius-lg);
+  padding:28px;
+  margin-bottom:32px;
+  display:grid;
+  gap:20px;
+  grid-template-columns:1fr;
+  align-items:center;
+}
+@media(min-width:640px){.score-summary{grid-template-columns:auto 1fr;}}
+.score-summary .score-num{
+  font-family:'Noto Serif Thai',serif;
+  font-weight:700;
+  font-size:3rem;
+  text-align:center;
+}
+.score-summary .score-num small{display:block;font-size:0.95rem;font-weight:500;color:#DCE3F5;}
+.score-summary .score-level{
+  font-size:1.2rem;
+  font-weight:700;
+  margin-bottom:6px;
+}
+.score-summary p{color:#DCE3F5;font-size:0.95rem;}
+ 
+.unit-divider{
+  font-family:'Noto Serif Thai',serif;
+  font-weight:600;
+  font-size:1.1rem;
+  color:var(--navy-900);
+  background:var(--navy-50);
+  border-radius:8px;
+  padding:10px 16px;
+  margin:32px 0 18px;
+}
+.unit-divider:first-of-type{margin-top:0;}
+ 
+.quiz-item{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:var(--radius-md);
+  padding:20px 22px;
+  margin-bottom:14px;
+}
+.quiz-item .q-text{
+  font-weight:600;
+  margin-bottom:14px;
+  font-size:0.98rem;
+}
+.quiz-item .q-num{color:var(--amber-700);}
+.q-options{display:grid;gap:9px;}
+.q-option{
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+  border:1.5px solid var(--line);
+  border-radius:8px;
+  padding:11px 14px;
+  font-size:0.92rem;
+  cursor:pointer;
+  transition:border-color .15s,background .15s;
+}
+.q-option:hover{border-color:var(--navy-700);}
+.q-option input{margin-top:3px;flex:0 0 auto;}
+.q-option.correct-answer{border-color:var(--success);background:var(--success-bg);}
+.q-option.wrong-answer{border-color:var(--danger);background:var(--danger-bg);}
+.q-explain{
+  margin-top:14px;
+  padding:14px 16px;
+  border-radius:8px;
+  background:var(--navy-50);
+  font-size:0.9rem;
+  color:var(--ink);
+}
+.q-explain strong{color:var(--navy-900);}
+ 
+.assess-actions{
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+  margin:8px 0 40px;
+}
+ 
+/* ---------- BUTTONS ---------- */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  border:none;
+  border-radius:6px;
+  padding:13px 26px;
+  font-size:0.98rem;
+  font-weight:600;
+  text-decoration:none;
+  transition:background .15s,transform .1s;
+}
+.btn:active{transform:translateY(1px);}
+.btn-primary{background:var(--amber-600);color:#fff;}
+.btn-primary:hover{background:var(--amber-700);}
+.btn-outline{background:transparent;border:1.5px solid var(--navy-900);color:var(--navy-900);}
+.btn-outline:hover{background:var(--navy-50);}
+ 
+/* ---------- ABOUT ---------- */
+.obj-list{list-style:none;margin:0;padding:0;display:grid;gap:10px;}
+.obj-list li{
+  display:flex;gap:10px;
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:var(--radius-md);
+  padding:14px 16px;
+  font-size:0.95rem;
+}
+.obj-list li::before{
+  content:"";
+  flex:0 0 auto;
+  width:8px;height:8px;
+  border-radius:50%;
+  background:var(--amber-600);
+  margin-top:8px;
+}
+table.team-table{
+  width:100%;
+  border-collapse:collapse;
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:var(--radius-md);
+  overflow:hidden;
+}
+table.team-table th,table.team-table td{
+  padding:13px 16px;
+  border-bottom:1px solid var(--line);
+  text-align:right;
+  font-size:0.93rem;
+}
+table.team-table th{
+  background:var(--navy-900);
+  color:#fff;
+  font-weight:600;
+}
+table.team-table tr:last-child td{border-bottom:none;}
+.fillable{border-bottom:1px dashed var(--muted);padding:0 4px;color:var(--muted);}
+ 
+.contact-grid{display:grid;gap:16px;grid-template-columns:1fr;}
+@media(min-width:640px){.contact-grid{grid-template-columns:repeat(3,1fr);}}
+.contact-card{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:var(--radius-md);
+  padding:20px;
+  text-align:center;
+}
+.contact-card .c-icon{
+  width:42px;height:42px;
+  border-radius:50%;
+  background:var(--navy-50);
+  color:var(--navy-900);
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 12px;
+}
+.contact-card h3{font-size:0.98rem;margin-bottom:6px;}
+.contact-card p{color:var(--muted);font-size:0.88rem;}
+ 
+/* ---------- FOOTER ---------- */
+footer{background:var(--navy-900);color:#C9D3EE;padding:44px 0 24px;}
+.footer-grid{display:grid;gap:28px;grid-template-columns:1fr;margin-bottom:28px;}
+@media(min-width:760px){.footer-grid{grid-template-columns:2fr 1fr 1fr;}}
+footer h4{color:#fff;font-size:1rem;margin-bottom:14px;font-family:'Sarabun',sans-serif;font-weight:600;}
+footer p{font-size:0.9rem;color:#AEB9DC;}
+footer ul{list-style:none;margin:0;padding:0;display:grid;gap:9px;}
+footer ul a{font-size:0.9rem;color:#C9D3EE;text-decoration:none;}
+footer ul a:hover{color:#fff;}
+.footer-bottom{
+  border-top:1px solid rgba(255,255,255,0.15);
+  padding-top:20px;
+  font-size:0.82rem;
+  color:#93A0C9;
+  text-align:center;
+}
+ 
+@media (prefers-reduced-motion: reduce){
+  *{transition-duration:.001ms !important;animation-duration:.001ms !important;}
+  html{scroll-behavior:auto;}
+}
+</style>
+</head>
+<body>
+ 
+<div class="util-bar">
+  <div class="wrap">
+    <span>ศูนย์การเรียนรู้การบริหารทางการเงินและทักษะการเงินสำหรับเยาวชน</span>
+    <span>เพื่อการศึกษา · Youth Financial Literacy Center</span>
+  </div>
+</div>
+ 
+<header class="site-header">
+  <div class="wrap">
+    <svg class="emblem" width="56" height="56" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="ตราสัญลักษณ์ YFLC">
+      <circle cx="32" cy="32" r="31" fill="#EAEEF9" stroke="#1e3a8a" stroke-width="2"/>
+      <path d="M32 14l14 6v8c0 10-6 16-14 20-8-4-14-10-14-20v-8z" fill="#1e3a8a"/>
+      <text x="32" y="38" font-family="Noto Serif Thai, serif" font-weight="700" font-size="15" fill="#fff" text-anchor="middle">฿</text>
+      <path d="M20 46h24" stroke="#d97706" stroke-width="3" stroke-linecap="round"/>
+    </svg>
+    <div class="header-text">
+      <h1>ศูนย์การเรียนรู้การบริหารทางการเงินและทักษะการเงินสำหรับเยาวชน <span class="acronym">(YFLC)</span></h1>
+      <p class="tagline">Youth Financial Literacy Center — เสริมสร้างภูมิคุ้มกันทางการเงินให้เยาวชนไทย</p>
+    </div>
+  </div>
+</header>
+ 
+<nav class="main-nav" aria-label="เมนูหลัก">
+  <div class="wrap">
+    <button class="nav-tab active" data-page="home">หน้าแรก</button>
+    <button class="nav-tab" data-page="lessons">บทเรียนการเงินเชิงลึก</button>
+    <button class="nav-tab" data-page="calculators">ศูนย์เครื่องมือคำนวณ</button>
+    <button class="nav-tab" data-page="assessment">คลังแบบทดสอบวัดผล</button>
+    <button class="nav-tab" data-page="about">เกี่ยวกับโครงการ</button>
+  </div>
+</nav>
+ 
+<div class="breadcrumb">
+  <div class="wrap">คุณอยู่ที่: <strong id="breadcrumbText">หน้าแรก</strong></div>
+</div>
+ 
+<!-- ================= PAGE 1: HOME ================= -->
+<section class="page-section" id="page-home">
+  <div class="hero-official">
+    <div class="wrap">
+      <h2>สร้างพลเมืองการเงินรุ่นใหม่ ที่รู้จักออม รู้จักใช้ และรู้ทันภัยการเงิน</h2>
+      <p>YFLC เป็นศูนย์กลางการเรียนรู้ด้านการบริหารเงินสำหรับเยาวชน มุ่งพัฒนาให้ผู้เรียนมีความรู้ความเข้าใจพื้นฐานทางการเงินที่ถูกต้อง ตั้งแต่การออม การจัดงบประมาณ การใช้บริการธนาคาร ไปจนถึงการรู้เท่าทันภัยไซเบอร์และแนวคิดการลงทุนเบื้องต้น เพื่อเป็นรากฐานสำคัญของการดำรงชีวิตในสังคมยุคดิจิทัล</p>
+      <div class="badges">
+        <button class="badge badge-link" data-goto="lessons">5 หน่วยการเรียนรู้</button>
+        <button class="badge badge-link" data-goto="assessment">แบบทดสอบ 50 ข้อ</button>
+        <button class="badge badge-link" data-goto="calculators">เครื่องมือคำนวณ 2 รูปแบบ</button>
+      </div>
+    </div>
+  </div>
+ 
+  <div class="page">
+    <div class="wrap">
+ 
+      <div class="block">
+        <h2 class="block-title">นโยบายและพันธกิจของศูนย์การเรียนรู้</h2>
+        <p class="page-lede">YFLC ดำเนินงานภายใต้พันธกิจหลัก 4 ประการ เพื่อวางรากฐานความรู้ทางการเงินให้แก่เยาวชนอย่างเป็นระบบและยั่งยืน</p>
+        <div class="grid-2">
+          <div class="pillar-card">
+            <div class="pillar-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 12a9 9 0 0018 0M3 12a9 9 0 0118 0"/><path d="M12 8v4l3 2"/></svg></div>
+            <h3>ส่งเสริมความรู้ทางการเงินขั้นพื้นฐาน</h3>
+            <p>ปูพื้นฐานความเข้าใจเรื่องเงิน การออม และการใช้จ่ายอย่างมีเหตุผล ผ่านเนื้อหาที่อ้างอิงหลักวิชาการ</p>
+          </div>
+          <div class="pillar-card">
+            <div class="pillar-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a4 4 0 018 0v2"/></svg></div>
+            <h3>ปลูกฝังวินัยและนิสัยการออม</h3>
+            <p>สร้างพฤติกรรมการวางแผนการเงินและการออมอย่างสม่ำเสมอ ตั้งแต่วัยเรียนจนถึงวัยทำงาน</p>
+          </div>
+          <div class="pillar-card">
+            <div class="pillar-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 118 0v3"/></svg></div>
+            <h3>สร้างภูมิคุ้มกันภัยทางการเงิน</h3>
+            <p>ให้ความรู้เท่าทันกลโกงและภัยไซเบอร์ทางการเงินรูปแบบต่าง ๆ ที่แพร่หลายในยุคดิจิทัล</p>
+          </div>
+          <div class="pillar-card">
+            <div class="pillar-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19V5a2 2 0 012-2h9l5 5v11a2 2 0 01-2 2H6a2 2 0 01-2-2z"/><path d="M14 3v5h5"/></svg></div>
+            <h3>พัฒนาเยาวชนสู่พลเมืองการเงินคุณภาพ</h3>
+            <p>เชื่อมโยงความรู้สู่การปฏิบัติจริง เพื่อให้เยาวชนสามารถตัดสินใจทางการเงินได้อย่างมั่นใจและรับผิดชอบ</p>
+          </div>
+        </div>
+      </div>
+ 
+      <div class="block">
+        <h2 class="block-title">เป้าหมายการเรียนรู้ของหลักสูตร</h2>
+        <ol class="goal-list">
+          <li><span class="num">1</span><span>ผู้เรียนสามารถอธิบายความสำคัญของการออมและหลักดอกเบี้ยทบต้นได้อย่างถูกต้อง</span></li>
+          <li><span class="num">2</span><span>ผู้เรียนสามารถจัดทำงบประมาณส่วนบุคคลตามสูตร 50/30/20 ได้ด้วยตนเอง</span></li>
+          <li><span class="num">3</span><span>ผู้เรียนเข้าใจบริการทางการเงินของธนาคารและสามารถใช้บริการดิจิทัลได้อย่างปลอดภัย</span></li>
+          <li><span class="num">4</span><span>ผู้เรียนสามารถระบุลักษณะของภัยการเงินไซเบอร์และแนวทางป้องกันตนเองได้</span></li>
+          <li><span class="num">5</span><span>ผู้เรียนเข้าใจแนวคิดพื้นฐานของการลงทุนและความสัมพันธ์ระหว่างความเสี่ยงกับผลตอบแทน</span></li>
+          <li><span class="num">6</span><span>ผู้เรียนสามารถประเมินความรู้ของตนเองผ่านแบบทดสอบวัดผลและนำข้อเสนอแนะไปพัฒนาต่อได้</span></li>
+        </ol>
+      </div>
+ 
+      <div class="block">
+        <h2 class="block-title">สื่อการเรียนรู้แนะนำ</h2>
+        <p class="page-lede">รับชมวิดีโอแนะนำเพื่อปูพื้นฐานความเข้าใจเรื่องการเงินก่อนเริ่มศึกษาเนื้อหาเชิงลึกในหน้าบทเรียน</p>
+        <div class="video-wrap">
+          <div class="video-frame">
+            <iframe src="https://www.youtube.com/embed/B-_Or8UPS88" title="เรื่องเงินที่รู้ไว้แล้วน่าจะดีกับชีวิต (มั้ง)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <p class="video-caption"><strong>เรื่องเงินที่รู้ไว้แล้วน่าจะดีกับชีวิต (มั้ง)</strong> — วิดีโอแนะนำแนวคิดพื้นฐานด้านการเงินส่วนบุคคล เหมาะสำหรับเป็นจุดเริ่มต้นก่อนเข้าสู่บทเรียนเชิงลึกทั้ง 5 หน่วยในหน้า "บทเรียนการเงินเชิงลึก"</p>
+        </div>
+      </div>
+ 
+      <div class="block">
+        <h2 class="block-title">ข่าวสารและสาระน่ารู้</h2>
+        <div class="grid-3">
+          <div class="news-card">
+            <span class="news-tag">บทความ</span>
+            <div class="news-body">
+              <h3>เริ่มออมตอนวัยรุ่น ดีกว่าที่คิด</h3>
+              <p>เงินออมที่เริ่มต้นเร็วมีเวลาให้ดอกเบี้ยทบต้นทำงานนานกว่า แม้จะออมจำนวนน้อยในแต่ละครั้งก็ตาม</p>
+              <span class="news-date">อัปเดตล่าสุด</span>
+            </div>
+          </div>
+          <div class="news-card">
+            <span class="news-tag">แจ้งเตือน</span>
+            <div class="news-body">
+              <h3>ระวังมิจฉาชีพหลอกลงทุนผลตอบแทนสูง</h3>
+              <p>หากพบการชักชวนลงทุนที่รับประกันผลตอบแทนสูงผิดปกติในเวลาสั้น ควรตรวจสอบกับหน่วยงานกำกับดูแลก่อนตัดสินใจทุกครั้ง</p>
+              <span class="news-date">อัปเดตล่าสุด</span>
+            </div>
+          </div>
+          <div class="news-card">
+            <span class="news-tag">ความรู้</span>
+            <div class="news-body">
+              <h3>5 พฤติกรรมการเงินที่วัยรุ่นควรเลี่ยง</h3>
+              <p>ใช้จ่ายตามอารมณ์ ไม่จดบันทึกรายจ่าย ไม่มีเป้าหมายการออม เป็นปัจจัยที่ทำให้การเงินส่วนบุคคลไม่มั่นคง</p>
+              <span class="news-date">อัปเดตล่าสุด</span>
+            </div>
+          </div>
+        </div>
+      </div>
+ 
+    </div>
+  </div>
+</section>
+ 
+<!-- ================= PAGE 2: LESSONS ================= -->
+<section class="page-section hidden" id="page-lessons">
+  <div class="page">
+    <div class="wrap">
+      <h2 class="page-title">บทเรียนการเงินเชิงลึก</h2>
+      <p class="page-lede">เนื้อหาบทเรียนแบ่งออกเป็น 5 หน่วยการเรียนรู้ ครอบคลุมตั้งแต่แนวคิดพื้นฐานไปจนถึงหลักการประยุกต์ใช้จริง เลือกหน่วยการเรียนรู้ที่ต้องการศึกษาได้จากเมนูด้านซ้าย</p>
+ 
+      <div class="lesson-layout">
+        <div class="unit-menu" id="unitMenu">
+          <button class="unit-btn active" data-unit="1"><span class="unit-num">หน่วยที่ 1</span>การออม</button>
+          <button class="unit-btn" data-unit="2"><span class="unit-num">หน่วยที่ 2</span>การจัดงบประมาณ</button>
+          <button class="unit-btn" data-unit="3"><span class="unit-num">หน่วยที่ 3</span>การธนาคาร</button>
+          <button class="unit-btn" data-unit="4"><span class="unit-num">หน่วยที่ 4</span>ภัยไซเบอร์ทางการเงิน</button>
+          <button class="unit-btn" data-unit="5"><span class="unit-num">หน่วยที่ 5</span>การลงทุนเบื้องต้น</button>
+        </div>
+ 
+        <div class="unit-content" id="unitContent">
+          <!-- UNIT 1 -->
+          <div class="unit-panel" id="unit-1">
+            <h2>หน่วยที่ 1: การออม (Saving)</h2>
+            <p class="unit-sub">แนวคิดพื้นฐานของการออมเงิน หลักการทำงานของดอกเบี้ยทบต้น และเทคนิคการสร้างวินัยการออม</p>
+ 
+            <img class="lesson-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPtlYZtiNpXNtD70ZGmtu-1hHLz570F0Bpa618keD8Jg2VVukuq0nmpDRC&s=10" alt="ภาพประกอบหน่วยที่ 1: การออม">
+            <p class="lesson-img-caption">ภาพประกอบ: แนวคิดการออมเงิน</p>
+ 
+            <div class="video-frame" style="margin-bottom:20px;">
+              <iframe src="https://www.youtube.com/embed/JseWFS7eC1c" title="วิดีโอประกอบหน่วยที่ 1: การออม" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+            </div>
+ 
+            <h3>1.1 ความหมายและความสำคัญของการออม</h3>
+            <p>การออม (Saving) หมายถึง การกันเงินส่วนหนึ่งจากรายได้ไว้โดยไม่นำไปใช้จ่ายในทันที เพื่อเก็บไว้ใช้ในอนาคตหรือในยามฉุกเฉิน การออมมีความสำคัญในฐานะรากฐานของความมั่นคงทางการเงินส่วนบุคคล เนื่องจากช่วยลดความเสี่ยงในการก่อหนี้เมื่อเกิดเหตุการณ์ไม่คาดฝัน และเปิดโอกาสให้บุคคลสามารถบรรลุเป้าหมายทางการเงินทั้งระยะสั้นและระยะยาวได้อย่างเป็นระบบ</p>
+ 
+            <h3>1.2 ประเภทของการออมตามระยะเวลา</h3>
+            <ul>
+              <li><strong>การออมระยะสั้น</strong> (ไม่เกิน 1 ปี) เช่น การออมเพื่อซื้ออุปกรณ์อิเล็กทรอนิกส์ หรือเพื่อการท่องเที่ยว</li>
+              <li><strong>การออมระยะกลาง</strong> (1–5 ปี) เช่น การออมเพื่อการศึกษาต่อ หรือเพื่อซื้อยานพาหนะ</li>
+              <li><strong>การออมระยะยาว</strong> (มากกว่า 5 ปี) เช่น การออมเพื่อการเกษียณอายุ หรือเพื่อซื้อที่อยู่อาศัย</li>
+            </ul>
+ 
+            <h3>1.3 หลักการ "จ่ายให้ตัวเองก่อน" (Pay Yourself First)</h3>
+            <p>หลักการนี้เสนอแนวคิดว่า เมื่อได้รับรายได้ ผู้ออมควรกันเงินส่วนหนึ่งไว้เป็นเงินออมทันที ก่อนที่จะนำเงินส่วนที่เหลือไปใช้จ่ายตามความจำเป็นหรือความต้องการอื่น ๆ วิธีนี้ช่วยป้องกันปัญหาที่มักเกิดขึ้นเมื่อผู้ออมตั้งใจจะออมเงินส่วนที่เหลือจากการใช้จ่าย ซึ่งในทางปฏิบัติมักไม่เหลือเงินให้ออมเลย</p>
+ 
+            <h3>1.4 หลักการดอกเบี้ยทบต้น (Compound Interest)</h3>
+            <p>ดอกเบี้ยทบต้น คือ ดอกเบี้ยที่คำนวณจากเงินต้นรวมกับดอกเบี้ยที่เกิดขึ้นสะสมในงวดก่อนหน้า ส่งผลให้มูลค่าเงินออมเติบโตในอัตราที่เร่งขึ้นเมื่อระยะเวลาผ่านไปนานขึ้น ซึ่งแตกต่างจากดอกเบี้ยคงต้น (Simple Interest) ที่คำนวณจากเงินต้นเดิมเพียงอย่างเดียวตลอดระยะเวลา</p>
+            <div class="formula-box">
+              A = P (1 + r) <sup>n</sup>
+              <small>A = มูลค่าเงินในอนาคต, P = เงินต้น, r = อัตราดอกเบี้ยต่อปี (ทศนิยม), n = จำนวนปีที่ฝากเงิน</small>
+            </div>
+            <p>ตัวอย่าง หากฝากเงิน 10,000 บาท ด้วยอัตราดอกเบี้ย 3% ต่อปี เป็นเวลา 5 ปี มูลค่าเงินในอนาคตจะเท่ากับ 10,000 × (1.03)<sup>5</sup> ≈ 11,593 บาท ซึ่งมากกว่าการคำนวณแบบดอกเบี้ยคงต้นที่จะได้เพียง 11,500 บาท</p>
+ 
+            <h3>1.5 เทคนิคการสร้างวินัยการออม</h3>
+            <ul>
+              <li>ตั้งเป้าหมายการออมที่ชัดเจน ทั้งจำนวนเงินและระยะเวลา</li>
+              <li>ใช้เทคนิค 52-Week Saving Challenge โดยเพิ่มจำนวนเงินออมทีละขั้นในแต่ละสัปดาห์ตลอดปี</li>
+              <li>แยกบัญชีเงินออมออกจากบัญชีที่ใช้จ่ายประจำวัน เพื่อลดโอกาสนำเงินออมมาใช้</li>
+              <li>ทบทวนความคืบหน้าของเป้าหมายการออมเป็นประจำทุกเดือน</li>
+            </ul>
+ 
+            <div class="summary-box"><strong>สรุปหน่วยที่ 1:</strong> การออมคือการกันเงินไว้เพื่ออนาคต โดยควรออมก่อนใช้จ่าย และอาศัยพลังของดอกเบี้ยทบต้นให้เงินออมเติบโตอย่างมีประสิทธิภาพเมื่อเริ่มต้นออมตั้งแต่อายุน้อย</div>
+          </div>
+ 
+          <!-- UNIT 2 -->
+          <div class="unit-panel hidden" id="unit-2">
+            <h2>หน่วยที่ 2: การจัดทำงบประมาณส่วนบุคคล (Budgeting)</h2>
+            <p class="unit-sub">หลักการวางแผนรายรับรายจ่าย สูตรการแบ่งเงิน 50/30/20 และแนวทางปรับงบประมาณเมื่อรายจ่ายเกินแผน</p>
+ 
+            <div class="video-frame" style="margin-bottom:20px;">
+              <iframe src="https://www.youtube.com/embed/Scp0H3Js9MQ" title="วิดีโอประกอบหน่วยที่ 2: การจัดทำงบประมาณ" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+            </div>
+ 
+            <h3>2.1 ความหมายของงบประมาณส่วนบุคคล</h3>
+            <p>งบประมาณส่วนบุคคล (Personal Budget) หมายถึง แผนการจัดสรรรายรับและรายจ่ายในช่วงเวลาหนึ่ง เพื่อให้การใช้จ่ายสอดคล้องกับรายได้ที่มีอยู่ และเพื่อให้สามารถบรรลุเป้าหมายทางการเงินที่ตั้งไว้ การจัดทำงบประมาณอย่างสม่ำเสมอช่วยให้เห็นภาพรวมของสถานะการเงิน และช่วยป้องกันการใช้จ่ายเกินตัว</p>
+ 
+            <h3>2.2 ขั้นตอนการจัดทำงบประมาณ</h3>
+            <ol>
+              <li>กำหนดยอดรายรับทั้งหมดที่จะได้รับในช่วงเวลานั้น เช่น เงินค่าขนม เงินพิเศษ</li>
+              <li>แยกประเภทรายจ่ายออกเป็นรายจ่ายจำเป็นและรายจ่ายตามความต้องการ</li>
+              <li>ตั้งเป้าหมายเงินออมที่ต้องการในแต่ละงวด</li>
+              <li>บันทึกและติดตามผลการใช้จ่ายจริงเปรียบเทียบกับแผนที่วางไว้</li>
+              <li>ทบทวนและปรับปรุงงบประมาณเมื่อสถานการณ์เปลี่ยนแปลง</li>
+            </ol>
+ 
+            <h3>2.3 สูตรการแบ่งเงิน 50/30/20</h3>
+            <p>สูตร 50/30/20 เป็นแนวทางการจัดสรรรายได้ที่ได้รับความนิยมอย่างแพร่หลาย เนื่องจากเข้าใจง่ายและนำไปปฏิบัติได้จริง โดยแบ่งรายได้ออกเป็น 3 ส่วนตามสัดส่วนดังนี้</p>
+            <ul>
+              <li><strong>50% รายจ่ายจำเป็น (Needs)</strong> ได้แก่ ค่าเดินทาง ค่าอาหารหลัก ค่าใช้จ่ายด้านการศึกษาที่จำเป็น</li>
+              <li><strong>30% รายจ่ายตามความต้องการ (Wants)</strong> ได้แก่ ความบันเทิง ของสะสม อาหารว่าง</li>
+              <li><strong>20% เงินออมและการชำระหนี้ (Savings)</strong> ได้แก่ เงินฝากออมทรัพย์ หรือเงินสำรองฉุกเฉิน</li>
+            </ul>
+ 
+            <h3>2.4 งบประมาณฐานศูนย์ (Zero-Based Budgeting)</h3>
+            <p>เป็นแนวคิดการจัดทำงบประมาณที่กำหนดให้รายรับทุกบาททุกสตางค์ต้องถูกจัดสรรให้มีหน้าที่ชัดเจน ไม่ว่าจะเป็นค่าใช้จ่าย เงินออม หรือการลงทุน จนกระทั่งยอดคงเหลือสุทธิเท่ากับศูนย์ วิธีนี้บังคับให้ผู้จัดทำงบประมาณต้องพิจารณาการใช้จ่ายทุกรายการอย่างรอบคอบ ต่างจากการทำงบประมาณทั่วไปที่อาจปล่อยให้มีเงินคงเหลือโดยไม่ได้วางแผน</p>
+ 
+            <h3>2.5 การปรับงบประมาณเมื่อรายจ่ายเกินแผน</h3>
+            <p>เมื่อพบว่ารายจ่ายจริงเกินกว่างบประมาณที่วางไว้ ควรทบทวนรายการรายจ่ายที่ไม่จำเป็นและปรับลดในหมวดความต้องการก่อนเป็นอันดับแรก โดยไม่ควรลดสัดส่วนเงินออมหรือก่อหนี้เพิ่มเพื่อชดเชยส่วนต่างดังกล่าว เนื่องจากจะกระทบต่อความมั่นคงทางการเงินในระยะยาว</p>
+ 
+            <div class="summary-box"><strong>สรุปหน่วยที่ 2:</strong> งบประมาณที่ดีต้องอาศัยการวางแผน การติดตามผล และความยืดหยุ่นในการปรับปรุง โดยสูตร 50/30/20 เป็นเครื่องมือเบื้องต้นที่ช่วยให้แบ่งสัดส่วนรายรับได้อย่างสมดุล</div>
+          </div>
+ 
+          <!-- UNIT 3 -->
+          <div class="unit-panel hidden" id="unit-3">
+            <h2>หน่วยที่ 3: ระบบธนาคารและบริการทางการเงิน (Banking)</h2>
+            <p class="unit-sub">หน้าที่ของธนาคารพาณิชย์ ประเภทบัญชีเงินฝาก และการใช้บริการธนาคารดิจิทัลอย่างปลอดภัย</p>
+ 
+            <div class="video-frame" style="margin-bottom:20px;">
+              <iframe src="https://www.youtube.com/embed/wltUDRHxUmM" title="วิดีโอประกอบหน่วยที่ 3: ระบบธนาคารและบริการทางการเงิน" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+            </div>
+ 
+            <h3>3.1 หน้าที่ของธนาคารพาณิชย์</h3>
+            <p>ธนาคารพาณิชย์ทำหน้าที่เป็นตัวกลางทางการเงิน โดยรับฝากเงินจากผู้ที่มีเงินออม และนำเงินดังกล่าวไปให้สินเชื่อแก่ผู้ที่ต้องการเงินทุน นอกจากนี้ยังให้บริการทางการเงินอื่น ๆ เช่น การโอนเงิน การชำระค่าสินค้าและบริการ และการแลกเปลี่ยนเงินตราต่างประเทศ</p>
+ 
+            <h3>3.2 ประเภทบัญชีเงินฝาก</h3>
+            <ul>
+              <li><strong>บัญชีเงินฝากออมทรัพย์</strong> มีความคล่องตัวในการฝากถอนสูง แต่ให้อัตราดอกเบี้ยค่อนข้างต่ำ</li>
+              <li><strong>บัญชีเงินฝากประจำ</strong> กำหนดระยะเวลาฝากที่แน่นอน ให้อัตราดอกเบี้ยสูงกว่าบัญชีออมทรัพย์ แต่มีเงื่อนไขจำกัดการถอนก่อนกำหนด</li>
+              <li><strong>บัญชีกระแสรายวัน</strong> ใช้สำหรับการทำธุรกรรมที่มีความถี่สูง มักไม่มีดอกเบี้ยหรือมีดอกเบี้ยต่ำมาก</li>
+            </ul>
+ 
+            <h3>3.3 บัตรเดบิตและบัตรเครดิต</h3>
+            <p>บัตรเดบิตเป็นบัตรที่เชื่อมโยงกับบัญชีเงินฝากโดยตรง เมื่อใช้จ่ายจะหักเงินจากบัญชีทันที ในขณะที่บัตรเครดิตเป็นการก่อหนี้ระยะสั้นที่ผู้ถือบัตรต้องชำระคืนให้แก่ธนาคารตามกำหนดเวลา ผู้ใช้ควรทำความเข้าใจความแตกต่างนี้เพื่อป้องกันการก่อหนี้เกินความสามารถในการชำระคืน</p>
+ 
+            <h3>3.4 ระบบพร้อมเพย์และธนาคารดิจิทัล</h3>
+            <p>พร้อมเพย์ (PromptPay) เป็นระบบโอนเงินที่ผูกบัญชีธนาคารเข้ากับเลขบัตรประชาชนหรือหมายเลขโทรศัพท์มือถือ ช่วยให้การโอนและรับเงินสะดวกรวดเร็วขึ้น ควบคู่กับการเติบโตของแอปพลิเคชัน Mobile Banking ที่ให้ผู้ใช้ทำธุรกรรมทางการเงินได้ด้วยตนเองผ่านสมาร์ตโฟน</p>
+ 
+            <h3>3.5 ข้อควรระวังในการใช้บริการธนาคารดิจิทัล</h3>
+            <ul>
+              <li>ดาวน์โหลดแอปพลิเคชันธนาคารจากแหล่งที่เป็นทางการเท่านั้น</li>
+              <li>เปิดใช้งานการยืนยันตัวตนหลายขั้นตอนเสมอ</li>
+              <li>หลีกเลี่ยงการทำธุรกรรมทางการเงินผ่านเครือข่าย Wi-Fi สาธารณะ</li>
+              <li>ตรวจสอบรายการเดินบัญชีอย่างสม่ำเสมอเพื่อสังเกตความผิดปกติ</li>
+              <li>ติดต่อธนาคารทันทีเมื่อบัตรหรืออุปกรณ์ที่ใช้ทำธุรกรรมสูญหาย</li>
+            </ul>
+ 
+            <div class="summary-box"><strong>สรุปหน่วยที่ 3:</strong> การเข้าใจบทบาทของธนาคารและประเภทบริการต่าง ๆ ช่วยให้เลือกใช้ผลิตภัณฑ์ทางการเงินได้เหมาะสม และการใช้บริการดิจิทัลอย่างระมัดระวังช่วยลดความเสี่ยงจากภัยทางการเงิน</div>
+          </div>
+ 
+          <!-- UNIT 4 -->
+          <div class="unit-panel hidden" id="unit-4">
+            <h2>หน่วยที่ 4: ภัยทางการเงินไซเบอร์ (Cyber Financial Threats)</h2>
+            <p class="unit-sub">รูปแบบการหลอกลวงทางการเงินที่พบบ่อย สัญญาณเตือน และแนวทางป้องกันและรับมือ</p>
+ 
+            <img class="lesson-img" src="https://talkatalka.com/wp-content/uploads/2023/03/Content09-01.jpg" alt="ภาพประกอบหน่วยที่ 4: ภัยทางการเงินไซเบอร์">
+            <p class="lesson-img-caption">ภาพประกอบ: ภัยทางการเงินไซเบอร์</p>
+ 
+            <h3>4.1 Phishing (ฟิชชิ่ง)</h3>
+            <p>คือการหลอกลวงโดยส่งอีเมล ข้อความ หรือสร้างเว็บไซต์ปลอมที่เลียนแบบหน่วยงานหรือธนาคารจริง เพื่อหลอกให้เหยื่อกรอกข้อมูลส่วนตัว รหัสผ่าน หรือข้อมูลบัตรเครดิต วิธีสังเกตคือตรวจสอบชื่อโดเมนเว็บไซต์และความสมเหตุสมผลของข้อความที่ได้รับ</p>
+ 
+            <h3>4.2 แชร์ลูกโซ่ (Ponzi Scheme)</h3>
+            <p>เป็นรูปแบบการหลอกลวงที่นำเงินจากสมาชิกใหม่มาจ่ายเป็นผลตอบแทนให้สมาชิกเก่า โดยอ้างผลตอบแทนสูงผิดปกติในระยะเวลาสั้นโดยไม่มีความเสี่ยง ซึ่งไม่สอดคล้องกับหลักการลงทุนที่แท้จริงที่ผลตอบแทนสูงย่อมมาพร้อมความเสี่ยงที่สูงขึ้นเสมอ</p>
+ 
+            <h3>4.3 Romance Scam และ Job Scam</h3>
+            <p>Romance Scam คือการที่มิจฉาชีพสร้างความสัมพันธ์เชิงชู้สาวผ่านช่องทางออนไลน์ เพื่อสร้างความไว้วางใจก่อนหลอกให้โอนเงิน ส่วน Job Scam คือการเสนองานที่ให้ผลตอบแทนสูงผิดปกติ โดยหลอกให้เหยื่อโอนเงินค่าสมัครงานหรือค่าอุปกรณ์ล่วงหน้าก่อนเริ่มงานจริง</p>
+ 
+            <h3>4.4 สัญญาณเตือนที่ควรระวัง</h3>
+            <ul>
+              <li>เร่งรัดให้ตัดสินใจหรือโอนเงินอย่างเร่งด่วน</li>
+              <li>เสนอผลตอบแทนหรือรางวัลที่สูงผิดปกติเมื่อเทียบกับความเสี่ยง</li>
+              <li>ขอข้อมูลส่วนตัว รหัสผ่าน หรือรหัส OTP ผ่านช่องทางที่ไม่เป็นทางการ</li>
+              <li>ใช้ช่องทางติดต่อที่ตรวจสอบแหล่งที่มาไม่ได้</li>
+            </ul>
+ 
+            <h3>4.5 แนวทางป้องกันและการรับมือ</h3>
+            <ol>
+              <li>ไม่เปิดเผยรหัสผ่านหรือรหัส OTP ให้บุคคลอื่นไม่ว่ากรณีใด</li>
+              <li>ตรวจสอบความน่าเชื่อถือของแหล่งข้อมูลก่อนโอนเงินหรือให้ข้อมูลส่วนตัวทุกครั้ง</li>
+              <li>เปิดใช้งานการยืนยันตัวตนสองขั้นตอนในบัญชีออนไลน์ทุกบัญชี</li>
+              <li>หากตกเป็นเหยื่อ ให้รีบติดต่อธนาคารเพื่ออายัดบัญชีและแจ้งความกับตำรวจทันที</li>
+              <li>สามารถแจ้งเหตุอาชญากรรมทางเทคโนโลยีผ่านสายด่วน 1441 ได้ตลอด 24 ชั่วโมง</li>
+            </ol>
+ 
+            <div class="summary-box"><strong>สรุปหน่วยที่ 4:</strong> การรู้เท่าทันรูปแบบภัยทางการเงินไซเบอร์และสัญญาณเตือนต่าง ๆ เป็นเกราะป้องกันที่สำคัญ ควบคู่กับการมีสติก่อนตัดสินใจโอนเงินหรือให้ข้อมูลส่วนตัวทุกครั้ง</div>
+          </div>
+ 
+          <!-- UNIT 5 -->
+          <div class="unit-panel hidden" id="unit-5">
+            <h2>หน่วยที่ 5: การลงทุนเบื้องต้น (Basic Investing)</h2>
+            <p class="unit-sub">ความแตกต่างระหว่างการออมกับการลงทุน หลักความเสี่ยงและผลตอบแทน และแนวทางการลงทุนสำหรับผู้เริ่มต้น</p>
+ 
+            <div class="video-frame" style="margin-bottom:20px;">
+              <iframe src="https://www.youtube.com/embed/Avpbe3cBbXw" title="วิดีโอประกอบหน่วยที่ 5: การลงทุนเบื้องต้น" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+            </div>
+ 
+            <h3>5.1 ความแตกต่างระหว่างการออมและการลงทุน</h3>
+            <p>การออมเน้นการรักษาเงินต้นให้ปลอดภัยและมีสภาพคล่องสูง เหมาะสำหรับเป้าหมายระยะสั้นและเงินสำรองฉุกเฉิน ในขณะที่การลงทุนคือการนำเงินไปใช้ในสินทรัพย์ที่มีความเสี่ยง เพื่อแลกกับโอกาสได้รับผลตอบแทนที่สูงกว่าในระยะยาว</p>
+ 
+            <h3>5.2 หลักการความเสี่ยงและผลตอบแทน (Risk-Return Tradeoff)</h3>
+            <p>หลักการนี้อธิบายว่า สินทรัพย์ที่มีโอกาสให้ผลตอบแทนสูงมักมาพร้อมกับความเสี่ยงที่สูงขึ้นตามไปด้วย ผู้ลงทุนจึงจำเป็นต้องประเมินระดับความเสี่ยงที่ตนเองยอมรับได้ ก่อนตัดสินใจเลือกประเภทสินทรัพย์ในการลงทุน</p>
+            <div class="formula-box">
+              ความเสี่ยงสูง ↔ ผลตอบแทนคาดหวังสูง
+              <small>ความสัมพันธ์เชิงบวกระหว่างระดับความเสี่ยงและผลตอบแทนที่คาดหวังของสินทรัพย์ทางการเงิน</small>
+            </div>
+ 
+            <h3>5.3 ประเภทสินทรัพย์การลงทุนเบื้องต้น</h3>
+            <ul>
+              <li><strong>เงินฝากธนาคาร</strong> ความเสี่ยงต่ำที่สุด ผลตอบแทนต่ำ เหมาะกับการรักษาเงินต้น</li>
+              <li><strong>พันธบัตรรัฐบาล</strong> ความเสี่ยงต่ำ เนื่องจากมีรัฐบาลเป็นผู้ค้ำประกัน ให้ผลตอบแทนสูงกว่าเงินฝากเล็กน้อย</li>
+              <li><strong>กองทุนรวม</strong> การรวมเงินจากผู้ลงทุนหลายรายให้ผู้จัดการกองทุนมืออาชีพบริหารจัดการแทน มีหลายระดับความเสี่ยงให้เลือกตามนโยบายกองทุน</li>
+              <li><strong>หุ้นสามัญ</strong> ความเสี่ยงและผลตอบแทนคาดหวังสูงสุดในกลุ่มนี้ มูลค่าผันผวนตามผลประกอบการและภาวะตลาด</li>
+            </ul>
+ 
+            <h3>5.4 หลักการกระจายความเสี่ยง (Diversification)</h3>
+            <p>คือการกระจายเงินลงทุนไปยังสินทรัพย์หลายประเภทหรือหลายบริษัท แทนการลงทุนกระจุกตัวในสินทรัพย์เดียว เพื่อลดผลกระทบหากสินทรัพย์ใดสินทรัพย์หนึ่งเกิดความเสียหาย หลักการนี้สอดคล้องกับคำกล่าวที่ว่า "อย่าใส่ไข่ทั้งหมดไว้ในตะกร้าใบเดียว"</p>
+ 
+            <h3>5.5 แนวทาง Dollar-Cost Averaging (DCA)</h3>
+            <p>เป็นกลยุทธ์การลงทุนที่ทยอยลงทุนด้วยจำนวนเงินเท่ากันอย่างสม่ำเสมอในทุกช่วงเวลา โดยไม่พยายามคาดเดาจังหวะตลาด วิธีนี้ช่วยลดผลกระทบจากความผันผวนของราคาสินทรัพย์ในระยะสั้น และเหมาะสำหรับผู้เริ่มต้นลงทุนที่ยังไม่มีประสบการณ์มากนัก</p>
+ 
+            <h3>5.6 ข้อควรระวังสำหรับนักลงทุนรุ่นเยาว์</h3>
+            <p>ผู้เยาว์ที่ยังไม่บรรลุนิติภาวะโดยทั่วไปมีข้อจำกัดทางกฎหมายในการเปิดบัญชีซื้อขายหลักทรัพย์ด้วยตนเอง จึงมักต้องได้รับความยินยอมจากผู้ปกครองหรือเปิดบัญชีในนามของผู้ปกครอง นอกจากนี้ควรศึกษาข้อมูลอย่างรอบคอบและระมัดระวังข้อเสนอการลงทุนที่ให้ผลตอบแทนรับประกันสูงผิดปกติ ซึ่งมักเข้าข่ายการหลอกลวง</p>
+ 
+            <div class="summary-box"><strong>สรุปหน่วยที่ 5:</strong> การลงทุนแตกต่างจากการออมตรงที่ยอมรับความเสี่ยงเพื่อผลตอบแทนที่สูงกว่า ผู้เริ่มต้นควรทำความเข้าใจหลักความเสี่ยงและผลตอบแทน กระจายความเสี่ยง และศึกษาข้อมูลให้รอบด้านก่อนตัดสินใจลงทุนจริง</div>
+          </div>
+ 
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- ================= PAGE 3: CALCULATORS ================= -->
+<section class="page-section hidden" id="page-calculators">
+  <div class="page">
+    <div class="wrap">
+      <h2 class="page-title">ศูนย์เครื่องมือคำนวณ</h2>
+      <p class="page-lede">เครื่องมือคำนวณเพื่อช่วยวางแผนการออมและการจัดสรรเงินตามสูตร 50/30/20 กรอกข้อมูลด้านล่างเพื่อดูผลลัพธ์แบบทันที</p>
+ 
+      <div class="block">
+        <h3 class="block-title">เครื่องมือคำนวณเงินออม (Savings Growth Calculator)</h3>
+        <div class="calc-card">
+          <div>
+            <div class="field">
+              <label for="scInitial">เงินออมเริ่มต้น</label>
+              <div class="input-row"><input type="number" id="scInitial" placeholder="เช่น 2000" min="0"><span class="unit-suffix">บาท</span></div>
+            </div>
+            <div class="field">
+              <label for="scMonthly">เงินฝากเพิ่มต่อเดือน</label>
+              <div class="input-row"><input type="number" id="scMonthly" placeholder="เช่น 500" min="0"><span class="unit-suffix">บาท/เดือน</span></div>
+            </div>
+            <div class="field">
+              <label for="scRate">อัตราดอกเบี้ยต่อปี</label>
+              <div class="input-row"><input type="number" id="scRate" placeholder="เช่น 1.5" min="0" step="0.01"><span class="unit-suffix">% ต่อปี</span></div>
+            </div>
+            <div class="field">
+              <label for="scYears">ระยะเวลาการออม</label>
+              <div class="input-row"><input type="number" id="scYears" placeholder="เช่น 3" min="0"><span class="unit-suffix">ปี</span></div>
+            </div>
+          </div>
+          <div class="result-panel">
+            <div class="result-row"><span class="label">เงินต้นสะสมทั้งหมด</span><span class="value" id="scPrincipal">0 บาท</span></div>
+            <div class="result-row"><span class="label">ดอกเบี้ยสะสมที่ได้รับ</span><span class="value" id="scInterest">0 บาท</span></div>
+            <div class="result-row total"><span class="label">มูลค่าเงินออมรวมเมื่อครบกำหนด</span><span class="value" id="scTotal">0 บาท</span></div>
+          </div>
+        </div>
+      </div>
+ 
+      <div class="block">
+        <h3 class="block-title">เครื่องมือคำนวณสูตร 50/30/20</h3>
+        <div class="calc-card">
+          <div>
+            <div class="field">
+              <label for="bIncome">รายได้หรือเงินที่ได้รับ</label>
+              <div class="input-row"><input type="number" id="bIncome" placeholder="เช่น 3000" min="0"><span class="unit-suffix">บาท</span></div>
+            </div>
+            <p style="color:var(--muted);font-size:0.9rem;">ระบบจะแบ่งเงินออกเป็น 3 ส่วนตามสัดส่วน 50% รายจ่ายจำเป็น 30% รายจ่ายตามความต้องการ และ 20% เงินออม</p>
+          </div>
+          <div class="result-panel">
+            <div class="bar-row">
+              <div class="bar-label"><span>จำเป็น (50%)</span><span class="amount" id="bNeed">0 บาท</span></div>
+              <div class="bar-track"><div class="bar-fill need" id="bNeedBar"></div></div>
+            </div>
+            <div class="bar-row">
+              <div class="bar-label"><span>อยากได้ (30%)</span><span class="amount" id="bWant">0 บาท</span></div>
+              <div class="bar-track"><div class="bar-fill want" id="bWantBar"></div></div>
+            </div>
+            <div class="bar-row">
+              <div class="bar-label"><span>เก็บออม (20%)</span><span class="amount" id="bSave">0 บาท</span></div>
+              <div class="bar-track"><div class="bar-fill save" id="bSaveBar"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+ 
+    </div>
+  </div>
+</section>
+ 
+<!-- ================= PAGE 4: ASSESSMENT ================= -->
+<section class="page-section hidden" id="page-assessment">
+  <div class="page">
+    <div class="wrap">
+      <h2 class="page-title">คลังแบบทดสอบวัดผล</h2>
+      <p class="page-lede">แบบทดสอบวัดความรู้ความเข้าใจด้านการเงิน จำนวน 50 ข้อ ครอบคลุมทั้ง 5 หน่วยการเรียนรู้ ตอบคำถามให้ครบทุกข้อแล้วกดปุ่ม "ตรวจคำตอบ" เพื่อดูคะแนนและคำเฉลยอย่างละเอียด</p>
+ 
+      <div class="assess-intro">
+        <strong>คำชี้แจง</strong>
+        <ul>
+          <li>แบบทดสอบมีทั้งหมด 50 ข้อ ข้อละ 2 คะแนน คะแนนเต็ม 100 คะแนน</li>
+          <li>เลือกคำตอบที่ถูกต้องที่สุดเพียงข้อเดียวในแต่ละคำถาม</li>
+          <li>เมื่อกดตรวจคำตอบ ระบบจะแสดงคำตอบที่ถูกต้องและคำอธิบายเฉลยใต้คำถามทุกข้อ</li>
+          <li>สามารถกดปุ่ม "ทำแบบทดสอบใหม่" เพื่อเริ่มทำแบบทดสอบอีกครั้งได้ตลอดเวลา</li>
+        </ul>
+      </div>
+ 
+      <div class="score-summary hidden" id="scoreSummary">
+        <div class="score-num" id="scoreNum">0<small>/ 100 คะแนน</small></div>
+        <div>
+          <div class="score-level" id="scoreLevel">ระดับความรู้</div>
+          <p id="scoreMsg"></p>
+        </div>
+      </div>
+ 
+      <div id="quizContainer"></div>
+ 
+      <div class="assess-actions">
+        <button class="btn btn-primary" id="submitQuizBtn">ตรวจคำตอบ</button>
+        <button class="btn btn-outline" id="resetQuizBtn">ทำแบบทดสอบใหม่</button>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- ================= PAGE 5: ABOUT ================= -->
+<section class="page-section hidden" id="page-about">
+  <div class="page">
+    <div class="wrap">
+      <h2 class="page-title">เกี่ยวกับโครงการ</h2>
+      <p class="page-lede">ข้อมูลผู้จัดทำ วัตถุประสงค์การเรียนรู้ และช่องทางการติดต่อของศูนย์การเรียนรู้ YFLC</p>
+ 
+      <div class="block">
+        <h3 class="block-title">วัตถุประสงค์ของโครงการ</h3>
+        <ul class="obj-list">
+          <li>เพื่อพัฒนาสื่อการเรียนรู้ด้านการเงินที่เข้าใจง่ายและเหมาะสมกับกลุ่มเยาวชน</li>
+          <li>เพื่อส่งเสริมให้เยาวชนมีความรู้และทักษะการบริหารเงินที่นำไปใช้ได้จริงในชีวิตประจำวัน</li>
+          <li>เพื่อสร้างเครื่องมือประเมินความรู้ที่ช่วยให้ผู้เรียนทราบระดับความเข้าใจของตนเอง</li>
+          <li>เพื่อเป็นส่วนหนึ่งของการส่งเสริมภูมิคุ้มกันทางการเงินและลดความเสี่ยงจากภัยไซเบอร์ในกลุ่มเยาวชน</li>
+        </ul>
+      </div>
+ 
+      <div class="block">
+        <h3 class="block-title">ผู้จัดทำโครงการ</h3>
+        <table class="team-table">
+          <thead>
+            <tr><th>ชื่อ-นามสกุล</th><th>ชั้น/ระดับการศึกษา</th><th>เลขที่</th><th>บทบาทในโครงการ</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>รังศิโรจน์ แซ่ซิ้ม</td>
+              <td>ม.5/3</td>
+              <td>15</td>
+              <td>ผู้จัดทำเนื้อหาและออกแบบเว็บไซต์</td>
+            </tr>
+          </tbody>
+        </table>
+        <p style="margin-top:12px;color:var(--muted);font-size:0.9rem;">อาจารย์ที่ปรึกษาโครงการ: ศุภเชษฐ์ สีหาราช &nbsp; รายวิชา: การเขียนเว็บไซต์</p>
+      </div>
+ 
+      <div class="block">
+        <h3 class="block-title">ช่องทางการติดต่อ</h3>
+        <div class="contact-grid">
+          <div class="contact-card">
+            <div class="c-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M4 6l8 7 8-7"/></svg></div>
+            <h3>อีเมล</h3>
+            <p class="fillable">rangsirodsas@edu.bangkok.go.th</p>
+          </div>
+          <div class="contact-card">
+            <div class="c-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.8 19.8 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.8 19.8 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.13.99.36 1.96.68 2.89a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.19-1.25a2 2 0 012.11-.45c.93.32 1.9.55 2.89.68A2 2 0 0122 16.92z"/></svg></div>
+            <h3>โทรศัพท์ (ฝ่ายโครงการ)</h3>
+            <p class="fillable">096-946-0086</p>
+          </div>
+          <div class="contact-card">
+            <div class="c-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+            <h3>สถานที่ตั้ง</h3>
+            <p class="fillable">โรงเรียนมัธยมนาคนาวาอุปถัมภ์</p>
+          </div>
+        </div>
+      </div>
+ 
+    </div>
+  </div>
+</section>
+ 
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <h4>YFLC — Youth Financial Literacy Center</h4>
+        <p>ศูนย์การเรียนรู้การบริหารทางการเงินและทักษะการเงินสำหรับเยาวชน จัดทำขึ้นเพื่อวัตถุประสงค์ทางการศึกษา มุ่งเสริมสร้างความรู้และภูมิคุ้มกันทางการเงินให้แก่เยาวชนไทย</p>
+      </div>
+      <div>
+        <h4>เมนูลัด</h4>
+        <ul>
+          <li><a data-footer-link="home" href="#">หน้าแรก</a></li>
+          <li><a data-footer-link="lessons" href="#">บทเรียนการเงินเชิงลึก</a></li>
+          <li><a data-footer-link="calculators" href="#">ศูนย์เครื่องมือคำนวณ</a></li>
+          <li><a data-footer-link="assessment" href="#">คลังแบบทดสอบวัดผล</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>ติดต่อโครงการ</h4>
+        <ul>
+          <li>อีเมล: rangsirodsas@edu.bangkok.go.th</li>
+          <li>โทร: 096-946-0086</li>
+          <li><a data-footer-link="about" href="#">ดูข้อมูลเพิ่มเติม</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">จัดทำขึ้นเพื่อการศึกษา ไม่ใช่หน่วยงานราชการหรือสถาบันการเงิน · เนื้อหาเป็นคำแนะนำทั่วไป ไม่ใช่คำปรึกษาทางการเงินอย่างเป็นทางการ</div>
+  </div>
+</footer>
+ 
+<script>
+(function(){
+"use strict";
+ 
+/* ================= NAVIGATION ================= */
+var pageNames = {
+  home:"หน้าแรก",
+  lessons:"บทเรียนการเงินเชิงลึก",
+  calculators:"ศูนย์เครื่องมือคำนวณ",
+  assessment:"คลังแบบทดสอบวัดผล",
+  about:"เกี่ยวกับโครงการ"
+};
+var navTabs = document.querySelectorAll('.nav-tab');
+var pageSections = document.querySelectorAll('.page-section');
+var breadcrumbText = document.getElementById('breadcrumbText');
+ 
+function goToPage(pageId){
+  pageSections.forEach(function(sec){
+    sec.classList.toggle('hidden', sec.id !== 'page-' + pageId);
+  });
+  navTabs.forEach(function(tab){
+    tab.classList.toggle('active', tab.getAttribute('data-page') === pageId);
+  });
+  breadcrumbText.textContent = pageNames[pageId] || 'หน้าแรก';
+  window.scrollTo({top:0,behavior:'smooth'});
+  history.replaceState(null,'','#' + pageId);
+}
+ 
+navTabs.forEach(function(tab){
+  tab.addEventListener('click', function(){
+    goToPage(tab.getAttribute('data-page'));
+  });
+});
+ 
+document.querySelectorAll('[data-footer-link]').forEach(function(link){
+  link.addEventListener('click', function(e){
+    e.preventDefault();
+    goToPage(link.getAttribute('data-footer-link'));
+  });
+});
+ 
+document.querySelectorAll('[data-goto]').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    goToPage(btn.getAttribute('data-goto'));
+  });
+});
+ 
+var initialPage = (location.hash || '').replace('#','');
+if(pageNames[initialPage]){ goToPage(initialPage); }
+ 
+/* ================= LESSONS: UNIT SWITCH ================= */
+var unitButtons = document.querySelectorAll('.unit-btn');
+var unitPanels = document.querySelectorAll('.unit-panel');
+unitButtons.forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var unit = btn.getAttribute('data-unit');
+    unitButtons.forEach(function(b){ b.classList.toggle('active', b === btn); });
+    unitPanels.forEach(function(p){ p.classList.toggle('hidden', p.id !== 'unit-' + unit); });
+  });
+});
+ 
+/* ================= CALCULATOR 1: SAVINGS GROWTH ================= */
+function baht(n){ return Math.round(n).toLocaleString('th-TH') + ' บาท'; }
+ 
+var scInitial = document.getElementById('scInitial');
+var scMonthly = document.getElementById('scMonthly');
+var scRate = document.getElementById('scRate');
+var scYears = document.getElementById('scYears');
+ 
+function updateSavingsCalc(){
+  var P = parseFloat(scInitial.value) || 0;
+  var PMT = parseFloat(scMonthly.value) || 0;
+  var annualRate = parseFloat(scRate.value) || 0;
+  var years = parseFloat(scYears.value) || 0;
+ 
+  var months = Math.round(years * 12);
+  var r = (annualRate / 100) / 12;
+ 
+  var futureValuePrincipal, futureValuePMT;
+  if(r === 0){
+    futureValuePrincipal = P;
+    futureValuePMT = PMT * months;
+  } else {
+    futureValuePrincipal = P * Math.pow(1 + r, months);
+    futureValuePMT = PMT * ((Math.pow(1 + r, months) - 1) / r);
+  }
+ 
+  var totalContributed = P + (PMT * months);
+  var totalValue = futureValuePrincipal + futureValuePMT;
+  var interestEarned = totalValue - totalContributed;
+  if(interestEarned < 0) interestEarned = 0;
+ 
+  document.getElementById('scPrincipal').textContent = baht(totalContributed);
+  document.getElementById('scInterest').textContent = baht(interestEarned);
+  document.getElementById('scTotal').textContent = baht(totalValue);
+}
+[scInitial, scMonthly, scRate, scYears].forEach(function(el){
+  el.addEventListener('input', updateSavingsCalc);
+});
+updateSavingsCalc();
+ 
+/* ================= CALCULATOR 2: 50/30/20 ================= */
+var bIncome = document.getElementById('bIncome');
+function updateBudgetCalc(){
+  var income = parseFloat(bIncome.value) || 0;
+  var need = income * 0.5, want = income * 0.3, save = income * 0.2;
+  document.getElementById('bNeed').textContent = baht(need);
+  document.getElementById('bWant').textContent = baht(want);
+  document.getElementById('bSave').textContent = baht(save);
+  var w = income > 0 ? 1 : 0;
+  document.getElementById('bNeedBar').style.width = (w*50) + '%';
+  document.getElementById('bWantBar').style.width = (w*30) + '%';
+  document.getElementById('bSaveBar').style.width = (w*20) + '%';
+}
+bIncome.addEventListener('input', updateBudgetCalc);
+updateBudgetCalc();
+ 
+/* ================= ASSESSMENT: 50-QUESTION BANK ================= */
+var quizData = [
+  {u:1,q:"การออมหมายถึงข้อใด?",o:["การกันเงินส่วนหนึ่งจากรายได้ไว้ใช้ในอนาคต","การนำเงินไปซื้อสินค้าฟุ่มเฟือย","การกู้ยืมเงินจากธนาคาร","การใช้จ่ายเงินทั้งหมดที่มีในทันที"],a:0,e:"การออม คือ การกันเงินส่วนหนึ่งไว้โดยไม่นำไปใช้จ่ายทันที เพื่อเก็บไว้ใช้ในอนาคตหรือยามฉุกเฉิน"},
+  {u:1,q:"หลักการ “จ่ายให้ตัวเองก่อน” (Pay Yourself First) หมายถึงอะไร?",o:["ซื้อของที่อยากได้ก่อนสิ่งอื่น","กันเงินไว้ออมทันทีที่ได้รับรายได้ ก่อนนำไปใช้จ่ายอย่างอื่น","จ่ายหนี้บัตรเครดิตก่อนเป็นอันดับแรกเสมอ","ใช้เงินฟุ่มเฟือยก่อนแล้วค่อยออม"],a:1,e:"หลักการนี้เน้นให้กันเงินออมทันทีที่ได้รับรายได้ ก่อนนำเงินส่วนที่เหลือไปใช้จ่าย เพื่อป้องกันไม่ให้เหลือเงินไม่พอออม"},
+  {u:1,q:"ดอกเบี้ยทบต้นคืออะไร?",o:["ดอกเบี้ยที่คำนวณจากเงินต้นเท่านั้นตลอดระยะเวลา","ดอกเบี้ยที่คำนวณจากเงินต้นรวมดอกเบี้ยสะสม ทำให้เงินเติบโตเร็วขึ้น","ค่าธรรมเนียมที่ธนาคารหักจากผู้ฝาก","ดอกเบี้ยที่เกิดจากการกู้ยืมเท่านั้น"],a:1,e:"ดอกเบี้ยทบต้นคำนวณจากเงินต้นบวกดอกเบี้ยที่สะสมไว้ในงวดก่อนหน้า ทำให้มูลค่าเงินเติบโตเร่งขึ้นเมื่อเวลาผ่านไป"},
+  {u:1,q:"ในสูตร A = P(1+r)ⁿ ตัวแปร n หมายถึงอะไร?",o:["อัตราดอกเบี้ยต่อปี","จำนวนปีหรืองวดที่ฝากเงิน","จำนวนเงินต้น","จำนวนเงินฝากต่อเดือน"],a:1,e:"n คือจำนวนงวดหรือจำนวนปีที่ฝากเงิน ส่วน P คือเงินต้น และ r คืออัตราดอกเบี้ยต่อปีในรูปทศนิยม"},
+  {u:1,q:"ข้อใดคือการออมเพื่อเป้าหมายระยะสั้น?",o:["ออมเพื่อซื้อโทรศัพท์มือถือภายใน 6 เดือน","ออมเพื่อใช้หลังเกษียณอายุ","ออมเพื่อการศึกษาต่อในอีก 10 ปี","ออมเพื่อซื้อบ้านในอีก 15 ปี"],a:0,e:"การออมระยะสั้นมักมีกรอบเวลาไม่เกิน 1 ปี เช่น การออมเพื่อซื้อของภายในไม่กี่เดือน"},
+  {u:1,q:"ข้อใดไม่ใช่ประโยชน์ของการออมเงิน?",o:["มีเงินสำรองใช้ในยามฉุกเฉิน","ลดความเสี่ยงในการเป็นหนี้","ทำให้มีเงินเพิ่มขึ้นทันทีโดยไม่ต้องรอเวลา","สร้างวินัยทางการเงิน"],a:2,e:"การออมต้องอาศัยระยะเวลาจึงจะเห็นผลลัพธ์ที่ชัดเจน การคาดหวังว่าจะมีเงินเพิ่มขึ้นทันทีจึงไม่ใช่ลักษณะของการออม"},
+  {u:1,q:"บัญชีเงินฝากออมทรัพย์ต่างจากกระปุกออมสินอย่างไร?",o:["ไม่มีความแตกต่างกันเลย","บัญชีเงินฝากมักให้ดอกเบี้ยและมีความปลอดภัยสูงกว่าการเก็บเงินสด","กระปุกออมสินให้ดอกเบี้ยสูงกว่าธนาคารเสมอ","บัญชีธนาคารไม่ปลอดภัยเท่ากระปุกออมสิน"],a:1,e:"เงินฝากในธนาคารได้รับดอกเบี้ยและมีระบบความปลอดภัยที่ธนาคารดูแล ต่างจากการเก็บเงินสดไว้ในกระปุกที่ไม่มีดอกเบี้ยและเสี่ยงต่อการสูญหาย"},
+  {u:1,q:"เทคนิค 52-Week Saving Challenge คือข้อใด?",o:["ออมเงินจำนวนเท่ากันทุกสัปดาห์ตลอดปี","ออมเงินเพิ่มขึ้นทีละขั้นในแต่ละสัปดาห์ตลอด 52 สัปดาห์","ฝากเงินธนาคารเพียงครั้งเดียวต่อปี","ถอนเงินออมทุกสัปดาห์"],a:1,e:"เทคนิคนี้ให้ค่อย ๆ เพิ่มจำนวนเงินออมในแต่ละสัปดาห์อย่างต่อเนื่องตลอด 52 สัปดาห์ เพื่อสร้างวินัยและยอดเงินออมสะสมที่มากขึ้น"},
+  {u:1,q:"ตามหลักการทั่วไป ควรมีเงินสำรองฉุกเฉินประมาณเท่าใด?",o:["3-6 เท่าของค่าใช้จ่ายต่อเดือน","เท่ากับเงินเดือน 1 วัน","ไม่จำเป็นต้องมีเงินสำรองฉุกเฉิน","เท่ากับค่าขนม 1 สัปดาห์"],a:0,e:"หลักการทางการเงินทั่วไปแนะนำให้มีเงินสำรองฉุกเฉินประมาณ 3-6 เท่าของค่าใช้จ่ายจำเป็นต่อเดือน เพื่อรองรับเหตุการณ์ไม่คาดฝัน"},
+  {u:1,q:"ข้อใดเป็นอุปสรรคสำคัญที่ทำให้วัยรุ่นออมเงินไม่สำเร็จ?",o:["การตั้งเป้าหมายการออมที่ชัดเจน","การใช้จ่ายตามอารมณ์โดยไม่มีการวางแผน","การจดบันทึกรายรับรายจ่าย","การแบ่งเงินออมก่อนใช้จ่าย"],a:1,e:"การใช้จ่ายตามอารมณ์โดยไม่มีแผนล่วงหน้าเป็นสาเหตุสำคัญที่ทำให้เงินที่ตั้งใจจะออมถูกนำไปใช้จ่ายจนหมด"},
+ 
+  {u:2,q:"งบประมาณส่วนบุคคลหมายถึงอะไร?",o:["แผนการจัดสรรรายรับและรายจ่ายในช่วงเวลาหนึ่ง","เงินที่ได้รับจากผู้ปกครองเท่านั้น","จำนวนเงินที่มีอยู่ในบัญชีธนาคาร","รายการซื้อของที่อยากได้"],a:0,e:"งบประมาณส่วนบุคคลคือแผนที่กำหนดว่าจะจัดสรรรายรับและรายจ่ายอย่างไรในช่วงเวลาหนึ่ง เพื่อให้การใช้จ่ายสอดคล้องกับรายได้"},
+  {u:2,q:"ในสูตร 50/30/20 สัดส่วน 30% ควรใช้กับรายจ่ายประเภทใด?",o:["ค่าใช้จ่ายจำเป็น","เงินออมและการลงทุน","ค่าใช้จ่ายตามความต้องการหรือความบันเทิง","ค่าใช้จ่ายชำระหนี้ทั้งหมด"],a:2,e:"สัดส่วน 30% ในสูตรนี้จัดสรรให้กับรายจ่ายตามความต้องการ (Wants) เช่น ความบันเทิงหรือของสะสม ซึ่งไม่ใช่รายจ่ายจำเป็น"},
+  {u:2,q:"ขั้นตอนแรกของการจัดทำงบประมาณคือข้อใด?",o:["กำหนดยอดรายรับทั้งหมดที่จะได้รับ","ไปช้อปปิ้ง","กู้ยืมเงินเพิ่ม","ยกเลิกบัญชีธนาคาร"],a:0,e:"การจัดทำงบประมาณต้องเริ่มจากการรู้ยอดรายรับทั้งหมดก่อน จึงจะสามารถวางแผนการจัดสรรรายจ่ายและเงินออมได้อย่างเหมาะสม"},
+  {u:2,q:"งบประมาณแบบ Zero-Based Budgeting คือแนวคิดใด?",o:["ไม่มีการวางแผนงบประมาณเลย","จัดสรรรายรับทุกบาทให้มีหน้าที่ จนยอดคงเหลือเท่ากับศูนย์","ใช้เงินจนหมดโดยไม่ต้องออม","มีเงินออมเป็นศูนย์เสมอ"],a:1,e:"Zero-Based Budgeting กำหนดให้รายรับทุกบาทถูกจัดสรรให้มีหน้าที่ชัดเจน ไม่ว่าจะเป็นรายจ่าย เงินออม หรือการลงทุน จนยอดคงเหลือสุทธิเท่ากับศูนย์"},
+  {u:2,q:"หากรายจ่ายเกินงบประมาณที่ตั้งไว้ ควรทำอย่างไรเป็นอันดับแรก?",o:["กู้เงินมาใช้เพิ่ม","ทบทวนและปรับลดรายจ่ายที่ไม่จำเป็น","เพิกเฉยแล้วใช้จ่ายตามปกติ","หยุดออมเงินทั้งหมดในเดือนถัดไป"],a:1,e:"เมื่อรายจ่ายเกินงบประมาณ ควรทบทวนและลดรายจ่ายในหมวดความต้องการก่อน โดยไม่ควรลดเงินออมหรือก่อหนี้เพิ่ม"},
+  {u:2,q:"เหตุใดการติดตามรายรับรายจ่าย (Tracking) จึงสำคัญ?",o:["ทำให้เห็นพฤติกรรมการใช้จ่ายจริงและปรับแผนได้แม่นยำขึ้น","ทำให้มีรายได้เพิ่มขึ้นทันที","ไม่มีผลต่อการจัดงบประมาณ","ทำให้ธนาคารให้ดอกเบี้ยเพิ่มขึ้น"],a:0,e:"การบันทึกและติดตามรายรับรายจ่ายช่วยให้เห็นพฤติกรรมการใช้จ่ายจริง และนำไปปรับปรุงแผนงบประมาณให้แม่นยำยิ่งขึ้น"},
+  {u:2,q:"ค่าใช้จ่ายประเภทใดจัดเป็น “รายจ่ายคงที่” (Fixed Expenses)?",o:["ค่าขนมที่ซื้อแบบไม่แน่นอนในแต่ละวัน","ค่าบริการรายเดือนที่มีจำนวนเท่าเดิมทุกเดือน","เงินซื้อของขวัญวันเกิดเพื่อน","ค่าซ่อมของที่เสียแบบไม่คาดคิด"],a:1,e:"รายจ่ายคงที่คือค่าใช้จ่ายที่มีจำนวนเท่าเดิมในแต่ละงวด เช่น ค่าบริการรายเดือนต่าง ๆ ต่างจากรายจ่ายผันแปรที่เปลี่ยนแปลงไปตามการใช้งาน"},
+  {u:2,q:"หากได้รับเงินค่าขนม 500 บาทต่อสัปดาห์ ตามสูตร 50/30/20 ควรออมเท่าใด?",o:["50 บาท","100 บาท","150 บาท","250 บาท"],a:1,e:"20% ของ 500 บาท เท่ากับ 100 บาท ซึ่งเป็นสัดส่วนที่ควรจัดสรรไว้เป็นเงินออมตามสูตร 50/30/20"},
+  {u:2,q:"งบประมาณที่ดีควรมีลักษณะอย่างไร?",o:["ยืดหยุ่นและสามารถทบทวนปรับปรุงได้ตามสถานการณ์จริง","ตายตัวไม่สามารถเปลี่ยนแปลงได้เลย","ไม่จำเป็นต้องบันทึกเป็นลายลักษณ์อักษร","ไม่ต้องมีเป้าหมายที่ชัดเจน"],a:0,e:"งบประมาณที่ดีควรมีความยืดหยุ่น สามารถปรับปรุงให้สอดคล้องกับสถานการณ์ที่เปลี่ยนแปลงไปได้ พร้อมมีเป้าหมายที่ชัดเจน"},
+  {u:2,q:"ข้อใดคือประโยชน์หลักของการทำงบประมาณส่วนบุคคล?",o:["ช่วยควบคุมการใช้จ่ายให้สอดคล้องกับรายได้และเป้าหมายการเงิน","ทำให้มีเงินใช้ไม่จำกัด","ทำให้ไม่ต้องทำงาน","เพิ่มรายได้โดยอัตโนมัติ"],a:0,e:"ประโยชน์หลักของงบประมาณคือช่วยให้ควบคุมการใช้จ่ายให้สอดคล้องกับรายได้ และสนับสนุนให้บรรลุเป้าหมายทางการเงินที่ตั้งไว้"},
+ 
+  {u:3,q:"หน้าที่หลักของธนาคารพาณิชย์คือข้อใด?",o:["รับฝากเงินและให้สินเชื่อแก่ผู้ที่ต้องการเงินทุน","พิมพ์ธนบัตรออกใช้เอง","กำหนดภาษีเงินได้บุคคลธรรมดา","ควบคุมราคาสินค้าในตลาด"],a:0,e:"ธนาคารพาณิชย์ทำหน้าที่เป็นตัวกลางทางการเงิน โดยรับฝากเงินจากผู้ออมและนำไปให้สินเชื่อแก่ผู้ที่ต้องการเงินทุน"},
+  {u:3,q:"บัญชีเงินฝากประเภทใดให้ดอกเบี้ยสูงกว่าแต่มีเงื่อนไขการถอนจำกัดกว่า?",o:["บัญชีกระแสรายวัน","บัญชีเงินฝากประจำ","กระเป๋าเงินอิเล็กทรอนิกส์","บัญชีเงินฝากออมทรัพย์ทั่วไป"],a:1,e:"บัญชีเงินฝากประจำกำหนดระยะเวลาฝากที่แน่นอนและให้ดอกเบี้ยสูงกว่าบัญชีออมทรัพย์ แต่มีเงื่อนไขจำกัดการถอนก่อนกำหนด"},
+  {u:3,q:"พร้อมเพย์ (PromptPay) คือระบบใด?",o:["ระบบโอนและรับเงินโดยผูกกับเลขบัตรประชาชนหรือเบอร์โทรศัพท์","ระบบกู้ยืมเงินด่วนของธนาคาร","บัตรเครดิตประเภทหนึ่ง","ระบบซื้อขายหุ้นออนไลน์"],a:0,e:"พร้อมเพย์เป็นระบบโอนเงินที่ผูกบัญชีธนาคารเข้ากับเลขบัตรประชาชนหรือหมายเลขโทรศัพท์มือถือ ช่วยให้การโอนและรับเงินสะดวกรวดเร็ว"},
+  {u:3,q:"ข้อควรระวังในการใช้ Mobile Banking คือข้อใด?",o:["ตั้งรหัสผ่านที่คาดเดาง่ายเพื่อความสะดวก","ไม่เปิดใช้งานการยืนยันตัวตนหลายขั้นตอน","ไม่กดลิงก์แปลกปลอมและตรวจสอบแอปให้เป็นของธนาคารจริงก่อนติดตั้ง","แชร์รหัส PIN ให้เพื่อนสนิทเก็บไว้"],a:2,e:"ควรดาวน์โหลดแอปจากแหล่งที่เป็นทางการและตรวจสอบความถูกต้องก่อนติดตั้งเสมอ เพื่อป้องกันการติดตั้งแอปปลอมที่ใช้ขโมยข้อมูล"},
+  {u:3,q:"บัตรเดบิตแตกต่างจากบัตรเครดิตอย่างไร?",o:["บัตรเดบิตหักเงินจากบัญชีโดยตรง ส่วนบัตรเครดิตเป็นการก่อหนี้ที่ต้องชำระคืนภายหลัง","บัตรเดบิตและบัตรเครดิตทำงานเหมือนกันทุกประการ","บัตรเครดิตใช้ได้เฉพาะซื้อของออนไลน์เท่านั้น","บัตรเดบิตไม่สามารถถอนเงินสดได้เลย"],a:0,e:"บัตรเดบิตเชื่อมโยงกับบัญชีเงินฝากและหักเงินทันทีเมื่อใช้จ่าย ในขณะที่บัตรเครดิตเป็นการก่อหนี้ระยะสั้นที่ต้องชำระคืนตามกำหนด"},
+  {u:3,q:"ดอกเบี้ยเงินฝากออมทรัพย์โดยทั่วไปเป็นอย่างไรเมื่อเทียบกับเงินฝากประจำ?",o:["สูงกว่าเงินฝากประจำเสมอ","ต่ำกว่าเงินฝากประจำ แต่มีความคล่องตัวในการถอนมากกว่า","เท่ากันทุกประเภทบัญชี","ไม่มีดอกเบี้ยเลย"],a:1,e:"บัญชีออมทรัพย์ให้ดอกเบี้ยต่ำกว่าเงินฝากประจำ แต่แลกกับความสะดวกในการฝากถอนได้ตลอดเวลา"},
+  {u:3,q:"หน่วยงานใดทำหน้าที่คุ้มครองเงินฝากของผู้ฝากเงินในประเทศไทย?",o:["สถาบันคุ้มครองเงินฝาก","กรมสรรพากร","ตลาดหลักทรัพย์แห่งประเทศไทย","กระทรวงพาณิชย์"],a:0,e:"สถาบันคุ้มครองเงินฝากเป็นหน่วยงานที่ทำหน้าที่คุ้มครองเงินฝากของผู้ฝากเงินในสถาบันการเงินตามที่กฎหมายกำหนด"},
+  {u:3,q:"หากทำบัตร ATM หายควรทำสิ่งใดเป็นอันดับแรก?",o:["รอให้มีคนเก็บมาคืน","รีบติดต่อธนาคารเพื่ออายัดบัตรทันที","แจ้งเพื่อนในโซเชียลมีเดีย","เปิดบัญชีใหม่โดยไม่อายัดบัญชีเดิม"],a:1,e:"เมื่อบัตร ATM สูญหาย ควรรีบติดต่อธนาคารเพื่ออายัดบัตรทันที เพื่อป้องกันการถูกนำบัตรไปใช้โดยไม่ได้รับอนุญาต"},
+  {u:3,q:"ข้อใดคือความเสี่ยงของการทำธุรกรรมผ่าน Wi-Fi สาธารณะ?",o:["ไม่มีความเสี่ยงใด ๆ","ข้อมูลอาจถูกดักจับหรือถูกโจรกรรมได้ง่ายกว่าเครือข่ายที่ปลอดภัย","ทำให้ดอกเบี้ยเงินฝากลดลง","ทำให้บัญชีธนาคารถูกปิดอัตโนมัติ"],a:1,e:"เครือข่าย Wi-Fi สาธารณะมักไม่มีการเข้ารหัสที่ปลอดภัยเพียงพอ ทำให้ข้อมูลการทำธุรกรรมมีความเสี่ยงที่จะถูกดักจับได้ง่ายขึ้น"},
+  {u:3,q:"เหตุใดจึงควรตรวจสอบรายการเดินบัญชี (Statement) เป็นประจำ?",o:["เพื่อดูรายการผิดปกติหรือธุรกรรมที่ไม่ได้ทำเอง","เพราะธนาคารบังคับให้ตรวจทุกวัน","เพื่อเพิ่มดอกเบี้ยเงินฝาก","ไม่มีประโยชน์ใด ๆ"],a:0,e:"การตรวจสอบรายการเดินบัญชีเป็นประจำช่วยให้พบธุรกรรมที่ผิดปกติหรือไม่ได้ทำเองได้อย่างรวดเร็ว และสามารถแจ้งธนาคารได้ทันท่วงที"},
+ 
+  {u:4,q:"Phishing คือการหลอกลวงลักษณะใด?",o:["การส่งข้อความหรืออีเมลปลอมเพื่อหลอกเอาข้อมูลส่วนตัวหรือรหัสผ่าน","การให้ส่วนลดสินค้าจากร้านค้าจริง","การโอนเงินคืนจากธนาคารอัตโนมัติ","การฝากเงินแบบมีดอกเบี้ยสูง"],a:0,e:"Phishing คือการปลอมแปลงข้อความ อีเมล หรือเว็บไซต์ให้ดูน่าเชื่อถือ เพื่อหลอกให้เหยื่อกรอกข้อมูลส่วนตัวหรือรหัสผ่าน"},
+  {u:4,q:"สัญญาณเตือนของ “แชร์ลูกโซ่” (Ponzi Scheme) คือข้อใด?",o:["ให้ผลตอบแทนสูงผิดปกติในเวลาสั้นโดยไม่มีความเสี่ยง","มีใบอนุญาตประกอบธุรกิจถูกต้องชัดเจน","ให้ข้อมูลความเสี่ยงอย่างครบถ้วนโปร่งใส","ผลตอบแทนใกล้เคียงกับอัตราดอกเบี้ยเงินฝากทั่วไป"],a:0,e:"การเสนอผลตอบแทนสูงผิดปกติในเวลาสั้นโดยอ้างว่าไม่มีความเสี่ยง เป็นสัญญาณเตือนสำคัญของแชร์ลูกโซ่ ซึ่งขัดกับหลักความเสี่ยงและผลตอบแทน"},
+  {u:4,q:"หากได้รับ SMS แจ้งว่าถูกรางวัลและให้กดลิงก์เพื่อรับเงิน ควรทำอย่างไร?",o:["กดลิงก์ทันทีเพื่อรับรางวัล","ไม่กดลิงก์ และตรวจสอบความถูกต้องจากช่องทางทางการก่อน","ส่งต่อให้เพื่อนกดแทน","โอนเงินค่าธรรมเนียมตามที่ระบุในข้อความ"],a:1,e:"ควรหลีกเลี่ยงการกดลิงก์จากข้อความที่ไม่น่าเชื่อถือ และตรวจสอบข้อมูลจากช่องทางทางการก่อนดำเนินการใด ๆ เสมอ"},
+  {u:4,q:"“Romance Scam” คือรูปแบบภัยทางการเงินลักษณะใด?",o:["มิจฉาชีพสร้างความสัมพันธ์ทางออนไลน์เพื่อหลอกให้โอนเงิน","การให้คำปรึกษาด้านความรักฟรีจากธนาคาร","ส่วนลดพิเศษสำหรับคู่รักในเทศกาลต่าง ๆ","การประกันชีวิตคู่สมรส"],a:0,e:"Romance Scam คือการที่มิจฉาชีพสร้างความสัมพันธ์เชิงชู้สาวผ่านช่องทางออนไลน์ เพื่อสร้างความไว้วางใจก่อนหลอกให้โอนเงิน"},
+  {u:4,q:"ข้อใดคือวิธีป้องกันบัญชีโซเชียลมีเดียจากการถูกแฮก?",o:["ใช้รหัสผ่านเดียวกันทุกบัญชีเพื่อจดจำง่าย","เปิดใช้งานการยืนยันตัวตนสองขั้นตอน (2FA)","เปิดเผยรหัสผ่านในโพสต์สาธารณะ","ปิดการอัปเดตความปลอดภัยของแอป"],a:1,e:"การเปิดใช้งานการยืนยันตัวตนสองขั้นตอนช่วยเพิ่มความปลอดภัยให้บัญชี แม้รหัสผ่านจะรั่วไหลก็ยังมีชั้นการป้องกันเพิ่มเติม"},
+  {u:4,q:"หากตกเป็นเหยื่อและถูกโอนเงินไปแล้ว ควรทำสิ่งใดเป็นลำดับแรก?",o:["เก็บเงียบไว้คนเดียว","รีบติดต่อธนาคารเพื่ออายัดบัญชีและแจ้งความกับตำรวจทันที","รอให้มิจฉาชีพคืนเงินเอง","โอนเงินเพิ่มเพื่อแลกกับการขอเงินคืน"],a:1,e:"เมื่อตกเป็นเหยื่อ ควรรีบติดต่อธนาคารเพื่ออายัดบัญชีและแจ้งความกับตำรวจโดยเร็วที่สุด เพื่อเพิ่มโอกาสในการติดตามเงินคืน"},
+  {u:4,q:"“Job Scam” มักมีลักษณะการหลอกลวงอย่างไร?",o:["เสนองานรายได้สูงผิดปกติ และให้โอนเงินค่าสมัครหรือค่าอุปกรณ์ก่อนเริ่มงาน","ประกาศรับสมัครงานผ่านช่องทางบริษัทที่ตรวจสอบได้ชัดเจน","ให้ทำงานฟรีโดยไม่มีเงื่อนไขใด ๆ","จ่ายเงินเดือนตรงเวลาทุกเดือน"],a:0,e:"Job Scam มักเสนอรายได้สูงผิดปกติ และหลอกให้เหยื่อโอนเงินค่าสมัครหรือค่าอุปกรณ์ล่วงหน้าก่อนเริ่มงานจริง"},
+  {u:4,q:"เว็บไซต์ปลอมที่เลียนแบบธนาคารเพื่อหลอกเอารหัสผ่าน จัดอยู่ในภัยประเภทใด?",o:["Phishing ผ่านเว็บไซต์ปลอม","การลงทุนที่ถูกกฎหมาย","บริการธนาคารทางการที่ปลอดภัย","ระบบความปลอดภัยไซเบอร์ของรัฐ"],a:0,e:"การสร้างเว็บไซต์ปลอมเลียนแบบธนาคารเพื่อหลอกเอาข้อมูลเข้าสู่ระบบ ถือเป็นรูปแบบหนึ่งของ Phishing"},
+  {u:4,q:"ข้อใดเป็นข้อควรระวังก่อนซื้อสินค้าจากร้านค้าออนไลน์ที่ไม่รู้จัก?",o:["โอนเงินเต็มจำนวนทันทีโดยไม่ตรวจสอบ","ตรวจสอบรีวิวร้านค้าและความน่าเชื่อถือก่อนโอนเงินทุกครั้ง","ไม่ต้องดูชื่อบัญชีปลายทาง","เชื่อโฆษณาราคาถูกผิดปกติโดยไม่สงสัย"],a:1,e:"ก่อนซื้อสินค้าจากร้านที่ไม่รู้จัก ควรตรวจสอบรีวิวและความน่าเชื่อถือของร้านค้าก่อนโอนเงินทุกครั้ง เพื่อลดความเสี่ยงจากการถูกหลอกลวง"},
+  {u:4,q:"หมายเลขสายด่วนใดใช้แจ้งเหตุอาชญากรรมทางเทคโนโลยีในประเทศไทย?",o:["1441","1111","1155 เท่านั้น","191 เท่านั้น"],a:0,e:"สายด่วน 1441 เป็นช่องทางแจ้งเหตุอาชญากรรมทางเทคโนโลยีและภัยการเงินออนไลน์ที่เปิดให้บริการตลอด 24 ชั่วโมง"},
+ 
+  {u:5,q:"ข้อแตกต่างหลักระหว่างการออมกับการลงทุนคือข้อใด?",o:["การออมเน้นความปลอดภัยของเงินต้น ส่วนการลงทุนยอมรับความเสี่ยงเพื่อผลตอบแทนที่สูงกว่า","การออมและการลงทุนไม่มีความแตกต่างกัน","การลงทุนไม่มีความเสี่ยงเลย","การออมให้ผลตอบแทนสูงกว่าการลงทุนเสมอ"],a:0,e:"การออมเน้นรักษาเงินต้นและสภาพคล่อง ส่วนการลงทุนยอมรับความเสี่ยงที่สูงขึ้นเพื่อแลกกับโอกาสได้ผลตอบแทนที่มากกว่าในระยะยาว"},
+  {u:5,q:"หลักการ “Risk-Return Tradeoff” หมายถึงอะไร?",o:["ผลตอบแทนที่คาดหวังสูงขึ้นมักมาพร้อมความเสี่ยงที่สูงขึ้นด้วย","ความเสี่ยงและผลตอบแทนไม่มีความสัมพันธ์กัน","การลงทุนที่มีความเสี่ยงต่ำจะให้ผลตอบแทนสูงที่สุดเสมอ","ผลตอบแทนคงที่ไม่ว่าจะเสี่ยงมากหรือน้อย"],a:0,e:"หลักการนี้อธิบายความสัมพันธ์เชิงบวกระหว่างความเสี่ยงและผลตอบแทน กล่าวคือสินทรัพย์ที่มีโอกาสให้ผลตอบแทนสูงมักมีความเสี่ยงสูงตามไปด้วย"},
+  {u:5,q:"กองทุนรวมคืออะไร?",o:["เงินฝากออมทรัพย์ประเภทหนึ่งของธนาคาร","การรวมเงินจากผู้ลงทุนหลายรายให้ผู้จัดการกองทุนมืออาชีพบริหารแทน","สินเชื่อส่วนบุคคลประเภทหนึ่ง","บัตรเครดิตของธนาคาร"],a:1,e:"กองทุนรวมคือการรวมเงินลงทุนจากนักลงทุนหลายรายให้ผู้จัดการกองทุนมืออาชีพนำไปบริหารจัดการตามนโยบายการลงทุนที่กำหนด"},
+  {u:5,q:"หลักการกระจายความเสี่ยง (Diversification) หมายถึงข้อใด?",o:["นำเงินทั้งหมดไปลงทุนในสินทรัพย์เดียวเพื่อผลตอบแทนสูงสุด","กระจายเงินลงทุนไปในสินทรัพย์หลายประเภทเพื่อลดความเสี่ยงโดยรวม","ฝากเงินไว้ในธนาคารเดียวเท่านั้น","ไม่ลงทุนอะไรเลยเพื่อไม่ให้เสี่ยง"],a:1,e:"การกระจายความเสี่ยงคือการลงทุนในสินทรัพย์หลายประเภทแทนการลงทุนกระจุกตัว เพื่อลดผลกระทบหากสินทรัพย์ใดสินทรัพย์หนึ่งเกิดความเสียหาย"},
+  {u:5,q:"พันธบัตรรัฐบาลโดยทั่วไปมีความเสี่ยงเป็นอย่างไรเมื่อเทียบกับหุ้น?",o:["มีความเสี่ยงสูงกว่าหุ้นทั่วไป","มีความเสี่ยงต่ำกว่าหุ้นทั่วไป เนื่องจากมีรัฐบาลค้ำประกัน","มีความเสี่ยงเท่ากับหุ้นทุกประการ","ไม่สามารถเปรียบเทียบกันได้"],a:1,e:"พันธบัตรรัฐบาลมีความเสี่ยงต่ำกว่าหุ้น เนื่องจากมีรัฐบาลเป็นผู้ค้ำประกันการชำระคืน ทำให้ความเสี่ยงในการผิดนัดชำระต่ำ"},
+  {u:5,q:"ผู้เยาว์ที่ยังไม่บรรลุนิติภาวะมีข้อจำกัดใดในการลงทุนในตลาดหลักทรัพย์?",o:["สามารถเปิดบัญชีซื้อขายหุ้นได้เองโดยอิสระ","โดยทั่วไปต้องได้รับความยินยอมจากผู้ปกครองหรือเปิดบัญชีในนามผู้ปกครอง","ไม่มีข้อจำกัดใด ๆ เลย","กฎหมายห้ามผู้เยาว์เกี่ยวข้องกับการเงินโดยสิ้นเชิง"],a:1,e:"ผู้เยาว์มักมีข้อจำกัดทางกฎหมายในการทำธุรกรรมด้านการลงทุนด้วยตนเอง จึงโดยทั่วไปต้องได้รับความยินยอมจากผู้ปกครองหรือเปิดบัญชีในนามผู้ปกครอง"},
+  {u:5,q:"DCA (Dollar-Cost Averaging) คือกลยุทธ์การลงทุนแบบใด?",o:["ลงทุนเงินก้อนใหญ่ครั้งเดียวในจังหวะที่ตลาดราคาต่ำที่สุด","ทยอยลงทุนด้วยจำนวนเงินเท่ากันอย่างสม่ำเสมอ โดยไม่พยายามจับจังหวะตลาด","ลงทุนเฉพาะเมื่อได้รับคำแนะนำจากเพื่อน","ถอนเงินลงทุนทั้งหมดทันทีที่ราคาลดลง"],a:1,e:"DCA คือการทยอยลงทุนด้วยจำนวนเงินเท่ากันในทุกช่วงเวลาอย่างสม่ำเสมอ ช่วยลดผลกระทบจากความผันผวนของราคาในระยะสั้น"},
+  {u:5,q:"เหตุใดผู้ลงทุนจึงควรศึกษาข้อมูลก่อนตัดสินใจลงทุนทุกครั้ง?",o:["เพื่อรับประกันว่าจะไม่ขาดทุนเลย","เพื่อเข้าใจความเสี่ยง ผลตอบแทน และความเหมาะสมกับเป้าหมายของตนเอง","เพราะกฎหมายบังคับให้ต้องรู้ทุกเรื่องก่อนลงทุน","การศึกษาข้อมูลไม่มีผลต่อการลงทุน"],a:1,e:"การศึกษาข้อมูลช่วยให้ผู้ลงทุนเข้าใจระดับความเสี่ยง ผลตอบแทนที่คาดหวัง และความเหมาะสมกับเป้าหมายทางการเงินของตนเองก่อนตัดสินใจ"},
+  {u:5,q:"ข้อใดคือความเสี่ยงที่มักเกิดกับการลงทุนที่เสนอผลตอบแทนรับประกันสูงกว่าตลาดมาก?",o:["มีความน่าเชื่อถือสูงเพราะให้ผลตอบแทนชัดเจน","มักเข้าข่ายการหลอกลวงหรือแชร์ลูกโซ่ที่ไม่มีการรับรองจากหน่วยงานกำกับดูแล","ไม่มีความเสี่ยงเพราะรับประกันผลตอบแทนแล้ว","เป็นการลงทุนที่กฎหมายรับรองความปลอดภัยเสมอ"],a:1,e:"การเสนอผลตอบแทนรับประกันสูงกว่าตลาดมากมักไม่สอดคล้องกับหลักความเสี่ยงและผลตอบแทน และมักเข้าข่ายการหลอกลวงหรือแชร์ลูกโซ่"},
+  {u:5,q:"เป้าหมายสำคัญของการเรียนรู้การลงทุนเบื้องต้นสำหรับเยาวชนคืออะไร?",o:["เพื่อให้รวยอย่างรวดเร็วโดยไม่ต้องทำงาน","เพื่อสร้างความเข้าใจพื้นฐานด้านความเสี่ยงและผลตอบแทน ก่อนตัดสินใจลงทุนจริงในอนาคต","เพื่อกู้เงินมาลงทุนในหุ้นทันที","เพื่อเลิกออมเงินแล้วหันไปลงทุนอย่างเดียว"],a:1,e:"เป้าหมายหลักคือการสร้างความเข้าใจพื้นฐานเรื่องความเสี่ยงและผลตอบแทน เพื่อเป็นรากฐานในการตัดสินใจลงทุนอย่างรอบคอบในอนาคต"}
+];
+ 
+var unitNames = {1:"หน่วยที่ 1: การออม",2:"หน่วยที่ 2: การจัดงบประมาณ",3:"หน่วยที่ 3: การธนาคาร",4:"หน่วยที่ 4: ภัยไซเบอร์ทางการเงิน",5:"หน่วยที่ 5: การลงทุนเบื้องต้น"};
+ 
+var quizContainer = document.getElementById('quizContainer');
+ 
+function renderQuiz(){
+  quizContainer.innerHTML = '';
+  var currentUnit = 0;
+  quizData.forEach(function(item, idx){
+    if(item.u !== currentUnit){
+      currentUnit = item.u;
+      var divider = document.createElement('div');
+      divider.className = 'unit-divider';
+      divider.textContent = unitNames[currentUnit];
+      quizContainer.appendChild(divider);
+    }
+ 
+    var qEl = document.createElement('div');
+    qEl.className = 'quiz-item';
+    qEl.setAttribute('data-index', idx);
+ 
+    var qText = document.createElement('p');
+    qText.className = 'q-text';
+    qText.innerHTML = '<span class="q-num">ข้อ ' + (idx+1) + '.</span> ' + item.q;
+    qEl.appendChild(qText);
+ 
+    var optWrap = document.createElement('div');
+    optWrap.className = 'q-options';
+ 
+    item.o.forEach(function(optText, optIdx){
+      var label = document.createElement('label');
+      label.className = 'q-option';
+      label.setAttribute('data-opt', optIdx);
+      var input = document.createElement('input');
+      input.type = 'radio';
+      input.name = 'q' + idx;
+      input.value = optIdx;
+      var span = document.createElement('span');
+      span.textContent = optText;
+      label.appendChild(input);
+      label.appendChild(span);
+      optWrap.appendChild(label);
+    });
+    qEl.appendChild(optWrap);
+ 
+    var explainEl = document.createElement('div');
+    explainEl.className = 'q-explain hidden';
+    explainEl.innerHTML = '<strong>คำเฉลย:</strong> ' + item.o[item.a] + '<br>' + item.e;
+    qEl.appendChild(explainEl);
+ 
+    quizContainer.appendChild(qEl);
+  });
+}
+renderQuiz();
+ 
+function gradeQuiz(){
+  var score = 0;
+  quizData.forEach(function(item, idx){
+    var qEl = quizContainer.querySelector('[data-index="' + idx + '"]');
+    var selected = qEl.querySelector('input[name="q' + idx + '"]:checked');
+    var selectedVal = selected ? parseInt(selected.value,10) : -1;
+ 
+    var options = qEl.querySelectorAll('.q-option');
+    options.forEach(function(opt){
+      var optIdx = parseInt(opt.getAttribute('data-opt'),10);
+      opt.classList.remove('correct-answer','wrong-answer');
+      if(optIdx === item.a){
+        opt.classList.add('correct-answer');
+      } else if(optIdx === selectedVal && selectedVal !== item.a){
+        opt.classList.add('wrong-answer');
+      }
+    });
+ 
+    qEl.querySelector('.q-explain').classList.remove('hidden');
+ 
+    if(selectedVal === item.a){ score += 2; }
+  });
+ 
+  var summary = document.getElementById('scoreSummary');
+  var levelText, levelMsg;
+  if(score >= 90){ levelText = 'ระดับดีเยี่ยม'; levelMsg = 'มีความเข้าใจด้านการเงินในระดับดีเยี่ยม ครอบคลุมทุกหน่วยการเรียนรู้'; }
+  else if(score >= 70){ levelText = 'ระดับดี'; levelMsg = 'มีพื้นฐานความรู้ทางการเงินที่ดี ควรทบทวนบางหน่วยเพื่อความแม่นยำยิ่งขึ้น'; }
+  else if(score >= 50){ levelText = 'ระดับพอใช้'; levelMsg = 'มีความเข้าใจพื้นฐานในระดับหนึ่ง ควรกลับไปทบทวนบทเรียนเพิ่มเติมในบางหน่วย'; }
+  else { levelText = 'ควรทบทวนเพิ่มเติม'; levelMsg = 'ควรกลับไปศึกษาเนื้อหาในหน้าบทเรียนการเงินเชิงลึกอีกครั้งอย่างละเอียด'; }
+ 
+  document.getElementById('scoreNum').innerHTML = score + '<small>/ 100 คะแนน</small>';
+  document.getElementById('scoreLevel').textContent = levelText;
+  document.getElementById('scoreMsg').textContent = levelMsg;
+  summary.classList.remove('hidden');
+  summary.scrollIntoView({behavior:'smooth', block:'start'});
+}
+ 
+document.getElementById('submitQuizBtn').addEventListener('click', gradeQuiz);
+document.getElementById('resetQuizBtn').addEventListener('click', function(){
+  document.getElementById('scoreSummary').classList.add('hidden');
+  renderQuiz();
+  window.scrollTo({top:0,behavior:'smooth'});
+});
+ 
+})();
+</script>
+ 
+</body>
+</html>
+ 
